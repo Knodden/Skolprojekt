@@ -2,6 +2,7 @@
 
 
 # Presentation Layer
+
 Windows form efter KT13.
 - Lägg till namn på Podcasten
 - Behövs inte beskrivning av avsnitt
@@ -9,10 +10,12 @@ Windows form efter KT13.
 
 # Business Logic Layer
 Timer - Async grejsemojs för att uppdatera RSS för den podcasten
+
 Lägg till/ta bort kategori från XML.
 - Namn på kategori
 - Ändra namn på Kategori => Uppdatera alla sparade => !(Kontrollera om det finns sedan innan)
 - Ta bort Kategori => !(Kontrollera om används)
+
 Lägg till/ta bort RSS för Podcast
 - HTML, namn, kategori, uppdateringsintervall (låst till anvigvna minuter).
 - Ändra namn på Kategori => !(Kontrollera om det finns sedan innan)
