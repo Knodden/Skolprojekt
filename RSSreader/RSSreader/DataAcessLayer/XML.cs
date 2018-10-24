@@ -8,5 +8,7 @@ namespace RSSreader.DataAcessLayer
 {
     class XML
     {
+		// Den skall läsa in två filer, göra om dessa till listor av objekt (Kategori & Podcast).
+		// Den skall även uppdatera de två filerna vid förändring.
     }
 }
