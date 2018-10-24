@@ -54,10 +54,9 @@
 			// 
 			this.lbPodcastRubrik.AutoSize = true;
 			this.lbPodcastRubrik.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbPodcastRubrik.Location = new System.Drawing.Point(9, 7);
-			this.lbPodcastRubrik.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbPodcastRubrik.Location = new System.Drawing.Point(12, 9);
 			this.lbPodcastRubrik.Name = "lbPodcastRubrik";
-			this.lbPodcastRubrik.Size = new System.Drawing.Size(59, 13);
+			this.lbPodcastRubrik.Size = new System.Drawing.Size(74, 17);
 			this.lbPodcastRubrik.TabIndex = 1;
 			this.lbPodcastRubrik.Text = "Podcasts";
 			this.lbPodcastRubrik.UseWaitCursor = true;
@@ -69,10 +68,10 @@
             this.chTitel,
             this.chFrekvens,
             this.chKategori});
-			this.lvPodcasts.Location = new System.Drawing.Point(11, 24);
-			this.lvPodcasts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.lvPodcasts.Location = new System.Drawing.Point(15, 30);
+			this.lvPodcasts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lvPodcasts.Name = "lvPodcasts";
-			this.lvPodcasts.Size = new System.Drawing.Size(420, 131);
+			this.lvPodcasts.Size = new System.Drawing.Size(559, 160);
 			this.lvPodcasts.TabIndex = 2;
 			this.lvPodcasts.UseCompatibleStateImageBehavior = false;
 			this.lvPodcasts.UseWaitCursor = true;
@@ -100,10 +99,11 @@
 			// lbKategorier
 			// 
 			this.lbKategorier.FormattingEnabled = true;
-			this.lbKategorier.Location = new System.Drawing.Point(476, 24);
-			this.lbKategorier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.lbKategorier.ItemHeight = 16;
+			this.lbKategorier.Location = new System.Drawing.Point(635, 30);
+			this.lbKategorier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.lbKategorier.Name = "lbKategorier";
-			this.lbKategorier.Size = new System.Drawing.Size(187, 108);
+			this.lbKategorier.Size = new System.Drawing.Size(248, 132);
 			this.lbKategorier.TabIndex = 3;
 			this.lbKategorier.UseWaitCursor = true;
 			this.lbKategorier.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
@@ -112,10 +112,9 @@
 			// 
 			this.lbKategoriRubrik.AutoSize = true;
 			this.lbKategoriRubrik.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbKategoriRubrik.Location = new System.Drawing.Point(474, 8);
-			this.lbKategoriRubrik.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbKategoriRubrik.Location = new System.Drawing.Point(632, 10);
 			this.lbKategoriRubrik.Name = "lbKategoriRubrik";
-			this.lbKategoriRubrik.Size = new System.Drawing.Size(65, 13);
+			this.lbKategoriRubrik.Size = new System.Drawing.Size(84, 17);
 			this.lbKategoriRubrik.TabIndex = 4;
 			this.lbKategoriRubrik.Text = "Kategorier";
 			this.lbKategoriRubrik.UseWaitCursor = true;
@@ -123,30 +122,28 @@
 			// lbURL
 			// 
 			this.lbURL.AutoSize = true;
-			this.lbURL.Location = new System.Drawing.Point(10, 163);
-			this.lbURL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbURL.Location = new System.Drawing.Point(13, 201);
 			this.lbURL.Name = "lbURL";
-			this.lbURL.Size = new System.Drawing.Size(29, 13);
+			this.lbURL.Size = new System.Drawing.Size(36, 17);
 			this.lbURL.TabIndex = 5;
 			this.lbURL.Text = "URL";
 			this.lbURL.UseWaitCursor = true;
 			// 
 			// tbURL
 			// 
-			this.tbURL.Location = new System.Drawing.Point(12, 180);
-			this.tbURL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tbURL.Location = new System.Drawing.Point(16, 222);
+			this.tbURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tbURL.Name = "tbURL";
-			this.tbURL.Size = new System.Drawing.Size(114, 20);
+			this.tbURL.Size = new System.Drawing.Size(151, 22);
 			this.tbURL.TabIndex = 6;
 			this.tbURL.UseWaitCursor = true;
 			// 
 			// lbTitel
 			// 
 			this.lbTitel.AutoSize = true;
-			this.lbTitel.Location = new System.Drawing.Point(130, 163);
-			this.lbTitel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbTitel.Location = new System.Drawing.Point(173, 201);
 			this.lbTitel.Name = "lbTitel";
-			this.lbTitel.Size = new System.Drawing.Size(27, 13);
+			this.lbTitel.Size = new System.Drawing.Size(35, 17);
 			this.lbTitel.TabIndex = 7;
 			this.lbTitel.Text = "Titel";
 			this.lbTitel.UseWaitCursor = true;
@@ -154,20 +151,19 @@
 			// tbTitel
 			// 
 			this.tbTitel.AllowDrop = true;
-			this.tbTitel.Location = new System.Drawing.Point(132, 180);
-			this.tbTitel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tbTitel.Location = new System.Drawing.Point(176, 222);
+			this.tbTitel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tbTitel.Name = "tbTitel";
-			this.tbTitel.Size = new System.Drawing.Size(103, 20);
+			this.tbTitel.Size = new System.Drawing.Size(136, 22);
 			this.tbTitel.TabIndex = 8;
 			this.tbTitel.UseWaitCursor = true;
 			// 
 			// lbFrekvens
 			// 
 			this.lbFrekvens.AutoSize = true;
-			this.lbFrekvens.Location = new System.Drawing.Point(239, 163);
-			this.lbFrekvens.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbFrekvens.Location = new System.Drawing.Point(319, 201);
 			this.lbFrekvens.Name = "lbFrekvens";
-			this.lbFrekvens.Size = new System.Drawing.Size(51, 13);
+			this.lbFrekvens.Size = new System.Drawing.Size(66, 17);
 			this.lbFrekvens.TabIndex = 9;
 			this.lbFrekvens.Text = "Frekvens";
 			this.lbFrekvens.UseWaitCursor = true;
@@ -175,20 +171,19 @@
 			// cbFrekvens
 			// 
 			this.cbFrekvens.FormattingEnabled = true;
-			this.cbFrekvens.Location = new System.Drawing.Point(242, 180);
-			this.cbFrekvens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.cbFrekvens.Location = new System.Drawing.Point(323, 222);
+			this.cbFrekvens.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cbFrekvens.Name = "cbFrekvens";
-			this.cbFrekvens.Size = new System.Drawing.Size(92, 21);
+			this.cbFrekvens.Size = new System.Drawing.Size(121, 24);
 			this.cbFrekvens.TabIndex = 10;
 			this.cbFrekvens.UseWaitCursor = true;
 			// 
 			// lbKategori
 			// 
 			this.lbKategori.AutoSize = true;
-			this.lbKategori.Location = new System.Drawing.Point(338, 163);
-			this.lbKategori.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbKategori.Location = new System.Drawing.Point(451, 201);
 			this.lbKategori.Name = "lbKategori";
-			this.lbKategori.Size = new System.Drawing.Size(46, 13);
+			this.lbKategori.Size = new System.Drawing.Size(61, 17);
 			this.lbKategori.TabIndex = 11;
 			this.lbKategori.Text = "Kategori";
 			this.lbKategori.UseWaitCursor = true;
@@ -196,94 +191,100 @@
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(340, 180);
-			this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBox1.Location = new System.Drawing.Point(453, 222);
+			this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(92, 21);
+			this.comboBox1.Size = new System.Drawing.Size(121, 24);
 			this.comboBox1.TabIndex = 12;
 			this.comboBox1.UseWaitCursor = true;
 			// 
 			// tbKategor
 			// 
-			this.tbKategor.Location = new System.Drawing.Point(476, 136);
-			this.tbKategor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tbKategor.Location = new System.Drawing.Point(635, 167);
+			this.tbKategor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tbKategor.Name = "tbKategor";
-			this.tbKategor.Size = new System.Drawing.Size(187, 20);
+			this.tbKategor.Size = new System.Drawing.Size(248, 22);
 			this.tbKategor.TabIndex = 13;
 			this.tbKategor.UseWaitCursor = true;
 			// 
 			// btnNyKategori
 			// 
-			this.btnNyKategori.Location = new System.Drawing.Point(476, 159);
-			this.btnNyKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnNyKategori.Location = new System.Drawing.Point(635, 196);
+			this.btnNyKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNyKategori.Name = "btnNyKategori";
-			this.btnNyKategori.Size = new System.Drawing.Size(91, 19);
+			this.btnNyKategori.Size = new System.Drawing.Size(121, 23);
 			this.btnNyKategori.TabIndex = 14;
 			this.btnNyKategori.Text = "Ny..";
 			this.btnNyKategori.UseVisualStyleBackColor = true;
 			this.btnNyKategori.UseWaitCursor = true;
+			this.btnNyKategori.Click += new System.EventHandler(this.btnNyKategori_Click);
 			// 
 			// btnSparaKategori
 			// 
-			this.btnSparaKategori.Location = new System.Drawing.Point(572, 159);
-			this.btnSparaKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnSparaKategori.Location = new System.Drawing.Point(763, 196);
+			this.btnSparaKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSparaKategori.Name = "btnSparaKategori";
-			this.btnSparaKategori.Size = new System.Drawing.Size(91, 19);
+			this.btnSparaKategori.Size = new System.Drawing.Size(121, 23);
 			this.btnSparaKategori.TabIndex = 15;
 			this.btnSparaKategori.Text = "Spara";
 			this.btnSparaKategori.UseVisualStyleBackColor = true;
 			this.btnSparaKategori.UseWaitCursor = true;
+			this.btnSparaKategori.Click += new System.EventHandler(this.btnSparaKategori_Click);
 			// 
 			// btnTaBortKategori
 			// 
-			this.btnTaBortKategori.Location = new System.Drawing.Point(476, 183);
-			this.btnTaBortKategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnTaBortKategori.Location = new System.Drawing.Point(635, 225);
+			this.btnTaBortKategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnTaBortKategori.Name = "btnTaBortKategori";
-			this.btnTaBortKategori.Size = new System.Drawing.Size(91, 19);
+			this.btnTaBortKategori.Size = new System.Drawing.Size(121, 23);
 			this.btnTaBortKategori.TabIndex = 16;
 			this.btnTaBortKategori.Text = "Ta bort";
 			this.btnTaBortKategori.UseVisualStyleBackColor = true;
 			this.btnTaBortKategori.UseWaitCursor = true;
+			this.btnTaBortKategori.Click += new System.EventHandler(this.btnTaBortKategori_Click);
 			// 
 			// btnNyPodcast
 			// 
-			this.btnNyPodcast.Location = new System.Drawing.Point(143, 206);
-			this.btnNyPodcast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnNyPodcast.Location = new System.Drawing.Point(191, 254);
+			this.btnNyPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNyPodcast.Name = "btnNyPodcast";
-			this.btnNyPodcast.Size = new System.Drawing.Size(91, 19);
+			this.btnNyPodcast.Size = new System.Drawing.Size(121, 23);
 			this.btnNyPodcast.TabIndex = 17;
 			this.btnNyPodcast.Text = "Ny..";
 			this.btnNyPodcast.UseVisualStyleBackColor = true;
 			this.btnNyPodcast.UseWaitCursor = true;
+			this.btnNyPodcast.Click += new System.EventHandler(this.btnNyPodcast_Click);
 			// 
 			// btnSparaPodcast
 			// 
-			this.btnSparaPodcast.Location = new System.Drawing.Point(242, 206);
-			this.btnSparaPodcast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnSparaPodcast.Location = new System.Drawing.Point(323, 254);
+			this.btnSparaPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSparaPodcast.Name = "btnSparaPodcast";
-			this.btnSparaPodcast.Size = new System.Drawing.Size(91, 19);
+			this.btnSparaPodcast.Size = new System.Drawing.Size(121, 23);
 			this.btnSparaPodcast.TabIndex = 18;
 			this.btnSparaPodcast.Text = "Spara";
 			this.btnSparaPodcast.UseVisualStyleBackColor = true;
 			this.btnSparaPodcast.UseWaitCursor = true;
+			this.btnSparaPodcast.Click += new System.EventHandler(this.btnSparaPodcast_Click);
 			// 
 			// btnTaBortPodcast
 			// 
-			this.btnTaBortPodcast.Location = new System.Drawing.Point(340, 206);
-			this.btnTaBortPodcast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.btnTaBortPodcast.Location = new System.Drawing.Point(453, 254);
+			this.btnTaBortPodcast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnTaBortPodcast.Name = "btnTaBortPodcast";
-			this.btnTaBortPodcast.Size = new System.Drawing.Size(91, 19);
+			this.btnTaBortPodcast.Size = new System.Drawing.Size(121, 23);
 			this.btnTaBortPodcast.TabIndex = 19;
 			this.btnTaBortPodcast.Text = "Ta bort";
 			this.btnTaBortPodcast.UseVisualStyleBackColor = true;
 			this.btnTaBortPodcast.UseWaitCursor = true;
+			this.btnTaBortPodcast.Click += new System.EventHandler(this.btnTaBortPodcast_Click);
 			// 
 			// listView1
 			// 
-			this.listView1.Location = new System.Drawing.Point(12, 249);
-			this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.listView1.Location = new System.Drawing.Point(16, 306);
+			this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(223, 92);
+			this.listView1.Size = new System.Drawing.Size(296, 112);
 			this.listView1.TabIndex = 20;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.UseWaitCursor = true;
@@ -292,19 +293,18 @@
 			// 
 			this.lbAntalAvsnitt.AutoSize = true;
 			this.lbAntalAvsnitt.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbAntalAvsnitt.Location = new System.Drawing.Point(10, 233);
-			this.lbAntalAvsnitt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lbAntalAvsnitt.Location = new System.Drawing.Point(13, 287);
 			this.lbAntalAvsnitt.Name = "lbAntalAvsnitt";
-			this.lbAntalAvsnitt.Size = new System.Drawing.Size(46, 13);
+			this.lbAntalAvsnitt.Size = new System.Drawing.Size(57, 17);
 			this.lbAntalAvsnitt.TabIndex = 21;
 			this.lbAntalAvsnitt.Text = "Avsnitt";
 			this.lbAntalAvsnitt.UseWaitCursor = true;
 			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(676, 366);
+			this.ClientSize = new System.Drawing.Size(901, 450);
 			this.Controls.Add(this.lbAntalAvsnitt);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.btnTaBortPodcast);
@@ -326,7 +326,7 @@
 			this.Controls.Add(this.lbKategorier);
 			this.Controls.Add(this.lvPodcasts);
 			this.Controls.Add(this.lbPodcastRubrik);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "Form1";
 			this.Text = "The best RRS-reader";
 			this.UseWaitCursor = true;

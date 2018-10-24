@@ -23,5 +23,29 @@ namespace RSSreader {
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
 
 		}
+
+		private void btnNyPodcast_Click(object sender, EventArgs e) {
+			// Skapa ny Podcast
+		}
+
+		private void btnSparaPodcast_Click(object sender, EventArgs e) {
+			// Uppdatera Podcast
+		}
+
+		private void btnTaBortPodcast_Click(object sender, EventArgs e) {
+			// Ta bort en Podcast
+		}
+
+		private void btnNyKategori_Click(object sender, EventArgs e) {
+			// Skapa en ny Kategori
+		}
+
+		private void btnSparaKategori_Click(object sender, EventArgs e) {
+			// Uppdatera Kategori
+		}
+
+		private void btnTaBortKategori_Click(object sender, EventArgs e) {
+			// Ta bort Kategori
+		}
 	}
 }
