@@ -8,6 +8,10 @@ namespace RSSreader.BusinessLayer
 {
     class Podcast
     {
-
-    }
+		public string Title { get; set; }	
+		public string Url { get; set; }
+		public int Episodes { get; set; }
+		public int UpdateInterval { get; set; }
+	}
 }
+
