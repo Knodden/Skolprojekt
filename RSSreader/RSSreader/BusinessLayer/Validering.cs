@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Frekvens
+    class Validering
     {
-
     }
 }
