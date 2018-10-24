@@ -46,7 +46,7 @@
 			this.btnNyPodcast = new System.Windows.Forms.Button();
 			this.btnSparaPodcast = new System.Windows.Forms.Button();
 			this.btnTaBortPodcast = new System.Windows.Forms.Button();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.lvAvsnitt = new System.Windows.Forms.ListView();
 			this.lbAntalAvsnitt = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -279,15 +279,15 @@
 			this.btnTaBortPodcast.UseWaitCursor = true;
 			this.btnTaBortPodcast.Click += new System.EventHandler(this.btnTaBortPodcast_Click);
 			// 
-			// listView1
+			// lvAvsnitt
 			// 
-			this.listView1.Location = new System.Drawing.Point(16, 306);
-			this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(296, 112);
-			this.listView1.TabIndex = 20;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.UseWaitCursor = true;
+			this.lvAvsnitt.Location = new System.Drawing.Point(16, 306);
+			this.lvAvsnitt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.lvAvsnitt.Name = "lvAvsnitt";
+			this.lvAvsnitt.Size = new System.Drawing.Size(296, 112);
+			this.lvAvsnitt.TabIndex = 20;
+			this.lvAvsnitt.UseCompatibleStateImageBehavior = false;
+			this.lvAvsnitt.UseWaitCursor = true;
 			// 
 			// lbAntalAvsnitt
 			// 
@@ -306,7 +306,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(901, 450);
 			this.Controls.Add(this.lbAntalAvsnitt);
-			this.Controls.Add(this.listView1);
+			this.Controls.Add(this.lvAvsnitt);
 			this.Controls.Add(this.btnTaBortPodcast);
 			this.Controls.Add(this.btnSparaPodcast);
 			this.Controls.Add(this.btnNyPodcast);
@@ -361,7 +361,7 @@
 		private System.Windows.Forms.Button btnNyPodcast;
 		private System.Windows.Forms.Button btnSparaPodcast;
 		private System.Windows.Forms.Button btnTaBortPodcast;
-		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.ListView lvAvsnitt;
 		private System.Windows.Forms.Label lbAntalAvsnitt;
 	}
 }

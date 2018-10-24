@@ -16,8 +16,8 @@ namespace RSSreader {
 		}
 
 		private void Form1_Load(object sender, EventArgs e) {
-			
-			
+			// Det som sker när programmet startar.
+			// Ladda in XML från Podcast och Kategori och fyll listorna.
 		}
 
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
