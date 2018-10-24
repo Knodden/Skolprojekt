@@ -47,5 +47,9 @@ namespace RSSreader {
 		private void btnTaBortKategori_Click(object sender, EventArgs e) {
 			// Ta bort Kategori
 		}
+
+		private void tbURL_TextChanged(object sender, EventArgs e) {
+
+		}
 	}
 }

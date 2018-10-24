@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Uppdatera_Listor
+    class UpdateList
     {
     }
 }

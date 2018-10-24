@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Validering
+    class Interval
     {
+		// Tar in en String och en Int för att skapa en timer som uppdaterar
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Frekvens
+    class Validate
     {
-		// Tar in en String och en Int för att skapa en timer som uppdaterar
+		public void IsURL(string URL) {
+			// Kontrollera att string URL är en länk.
+		}
     }
 }
