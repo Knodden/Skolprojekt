@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Frekvens.cs" />
+    <Compile Include="BusinessLayer\Kategori.cs" />
     <Compile Include="BusinessLayer\Podcast.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
