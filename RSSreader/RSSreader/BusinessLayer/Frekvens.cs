@@ -8,6 +8,6 @@ namespace RSSreader.BusinessLayer
 {
     class Frekvens
     {
-
+		// Tar in en String och en Int för att skapa en timer som uppdaterar
     }
 }
