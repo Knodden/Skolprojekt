@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class UpdateList
+    class ListHandler
     {
+		List<Category> listOfCategory = new List<Category>();
+		List<Podcast> listOfPodcast = new List<Podcast>();
     }
+	
 }
