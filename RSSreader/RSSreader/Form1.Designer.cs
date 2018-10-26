@@ -48,6 +48,7 @@
 			this.btnRemovePodcast = new System.Windows.Forms.Button();
 			this.lvEpisodes = new System.Windows.Forms.ListView();
 			this.lbEpisodeAmount = new System.Windows.Forms.Label();
+			this.btnLaddaKategorier = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lbPodcastRubrik
@@ -304,11 +305,22 @@
 			this.lbEpisodeAmount.Text = "Episodes";
 			this.lbEpisodeAmount.UseWaitCursor = true;
 			// 
+			// btnLaddaKategorier
+			// 
+			this.btnLaddaKategorier.Location = new System.Drawing.Point(440, 329);
+			this.btnLaddaKategorier.Name = "btnLaddaKategorier";
+			this.btnLaddaKategorier.Size = new System.Drawing.Size(248, 23);
+			this.btnLaddaKategorier.TabIndex = 22;
+			this.btnLaddaKategorier.Text = "- Ladda in kategorier -";
+			this.btnLaddaKategorier.UseVisualStyleBackColor = true;
+			this.btnLaddaKategorier.Click += new System.EventHandler(this.btnLaddaKategorier_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(901, 450);
+			this.Controls.Add(this.btnLaddaKategorier);
 			this.Controls.Add(this.lbEpisodeAmount);
 			this.Controls.Add(this.lvEpisodes);
 			this.Controls.Add(this.btnRemovePodcast);
@@ -367,6 +379,7 @@
 		private System.Windows.Forms.Button btnRemovePodcast;
 		private System.Windows.Forms.ListView lvEpisodes;
 		private System.Windows.Forms.Label lbEpisodeAmount;
+		private System.Windows.Forms.Button btnLaddaKategorier;
 	}
 }
 
