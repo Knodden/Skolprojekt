@@ -8,7 +8,7 @@ namespace RSSreader.BusinessLayer
 {
     class Validate
     {
-		public void IsURL(string URL) {
+		public bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
         {
 			if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$"))
@@ -22,7 +22,7 @@ namespace RSSreader.BusinessLayer
                 
         bool NotEmpty(string Input) 
         {
-            if(Input == !null) 
+            if(Input != null) 
             {
                 return true;
             }

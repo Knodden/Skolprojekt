@@ -5,10 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer {
-	class Category {
+	public class Category {
 		public string title { get; set; }
 		public Category(string categoryTitle) {
 			title = categoryTitle;
 		}
+
+        protected Category()
+        {
+        }
 	}
 }

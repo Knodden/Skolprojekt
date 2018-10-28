@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Podcast
+    public class Podcast
     {
 		public string Title { get; set; }	
 		public string Url { get; set; }
