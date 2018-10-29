@@ -42,13 +42,12 @@
 			this.tbCategory = new System.Windows.Forms.TextBox();
 			this.btnNewCategory = new System.Windows.Forms.Button();
 			this.btnSaveCategory = new System.Windows.Forms.Button();
-			this.btnRemoveCategory = new System.Windows.Forms.Button();
 			this.btnNewPodcast = new System.Windows.Forms.Button();
 			this.btnSavePodcast = new System.Windows.Forms.Button();
 			this.btnRemovePodcast = new System.Windows.Forms.Button();
 			this.lvEpisodes = new System.Windows.Forms.ListView();
 			this.lbEpisodeAmount = new System.Windows.Forms.Label();
-			this.btnLaddaKategorier = new System.Windows.Forms.Button();
+			this.btnRemoveCategory = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lbPodcastRubrik
@@ -235,18 +234,6 @@
 			this.btnSaveCategory.UseWaitCursor = true;
 			this.btnSaveCategory.Click += new System.EventHandler(this.btnSparaKategori_Click);
 			// 
-			// btnRemoveCategory
-			// 
-			this.btnRemoveCategory.Location = new System.Drawing.Point(635, 225);
-			this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.btnRemoveCategory.Name = "btnRemoveCategory";
-			this.btnRemoveCategory.Size = new System.Drawing.Size(121, 23);
-			this.btnRemoveCategory.TabIndex = 16;
-			this.btnRemoveCategory.Text = "Remove";
-			this.btnRemoveCategory.UseVisualStyleBackColor = true;
-			this.btnRemoveCategory.UseWaitCursor = true;
-			this.btnRemoveCategory.Click += new System.EventHandler(this.btnTaBortKategori_Click);
-			// 
 			// btnNewPodcast
 			// 
 			this.btnNewPodcast.Location = new System.Drawing.Point(191, 254);
@@ -305,28 +292,27 @@
 			this.lbEpisodeAmount.Text = "Episodes";
 			this.lbEpisodeAmount.UseWaitCursor = true;
 			// 
-			// btnLaddaKategorier
+			// btnRemoveCategory
 			// 
-			this.btnLaddaKategorier.Location = new System.Drawing.Point(440, 329);
-			this.btnLaddaKategorier.Name = "btnLaddaKategorier";
-			this.btnLaddaKategorier.Size = new System.Drawing.Size(248, 23);
-			this.btnLaddaKategorier.TabIndex = 22;
-			this.btnLaddaKategorier.Text = "- Ladda in kategorier -";
-			this.btnLaddaKategorier.UseVisualStyleBackColor = true;
-			this.btnLaddaKategorier.Click += new System.EventHandler(this.btnLaddaKategorier_Click);
+			this.btnRemoveCategory.Location = new System.Drawing.Point(635, 222);
+			this.btnRemoveCategory.Name = "btnRemoveCategory";
+			this.btnRemoveCategory.Size = new System.Drawing.Size(121, 23);
+			this.btnRemoveCategory.TabIndex = 22;
+			this.btnRemoveCategory.Text = "Remove";
+			this.btnRemoveCategory.UseVisualStyleBackColor = true;
+			this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(901, 450);
-			this.Controls.Add(this.btnLaddaKategorier);
+			this.Controls.Add(this.btnRemoveCategory);
 			this.Controls.Add(this.lbEpisodeAmount);
 			this.Controls.Add(this.lvEpisodes);
 			this.Controls.Add(this.btnRemovePodcast);
 			this.Controls.Add(this.btnSavePodcast);
 			this.Controls.Add(this.btnNewPodcast);
-			this.Controls.Add(this.btnRemoveCategory);
 			this.Controls.Add(this.btnSaveCategory);
 			this.Controls.Add(this.btnNewCategory);
 			this.Controls.Add(this.tbCategory);
@@ -373,13 +359,12 @@
 		private System.Windows.Forms.TextBox tbCategory;
 		private System.Windows.Forms.Button btnNewCategory;
 		private System.Windows.Forms.Button btnSaveCategory;
-		private System.Windows.Forms.Button btnRemoveCategory;
 		private System.Windows.Forms.Button btnNewPodcast;
 		private System.Windows.Forms.Button btnSavePodcast;
 		private System.Windows.Forms.Button btnRemovePodcast;
 		private System.Windows.Forms.ListView lvEpisodes;
 		private System.Windows.Forms.Label lbEpisodeAmount;
-		private System.Windows.Forms.Button btnLaddaKategorier;
+		private System.Windows.Forms.Button btnRemoveCategory;
 	}
 }
 
