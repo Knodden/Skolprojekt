@@ -1,31 +1,42 @@
-﻿using System;
+﻿using RSSreader.BusinessLayer;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace RSSreader.DataAcessLayer
 {
     class XML
     {
-		// Den skall läsa in två filer, göra om dessa till listor av objekt (Kategori & Podcast).
-		// Den skall även uppdatera de två filerna vid förändring.
+        public void WriteCategories(List<Category> categories, Stream stream)
+        {
+            var writer = new XmlSerializer(typeof(List<Category>));
+            writer.Serialize(stream, categories);
+        }
 
-        
-       //  När programmer startas finns klassen filhanterare. Kontrollerar om filerna finns. Finns dom 
-          //  anro´pas xml. FInns dem inte skapas filerna.
+        public void WritePodcasts(List<Podcast> podcasts, Stream stream)
+        {
+            var writer = new XmlSerializer(typeof(List<Podcast>));
+            writer.Serialize(stream, podcasts);
+        }
 
-        // binary writer. 
+        public List<Category> ReadCategories(Stream stream)
+        {
+            var reader = new XmlSerializer(typeof(List<Category>));
+            var data = reader.Deserialize(stream);
+            var conv = (List<Category>)data;
+            return conv;
+        }
 
-        // kursträff 8 går if(file exists) 
-
-        // not skapar vi skapar filerna i file handler. Vad är syntax för att skapa filer. 
-
-        // sen xmr writer i xml. 
-
-
-
-
-
+        public List<Podcast> ReadPodcasts(Stream stream)
+        {
+            var reader = new XmlSerializer(typeof(List<Podcast>));
+            var data = reader.Deserialize(stream);
+            var conv = (List<Podcast>)data;
+            return conv;
+        }
     }
 }
