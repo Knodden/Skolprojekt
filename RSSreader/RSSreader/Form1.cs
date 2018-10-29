@@ -14,8 +14,6 @@ namespace RSSreader {
 	public partial class Form1 : Form {
 		List<Podcast> listOfPodcast = new List<Podcast>();
 		List<Category> listOfCategory = new List<Category>();
-		Validate validator = new Validate();
-
 
 		public Form1() {
 			InitializeComponent();
@@ -28,7 +26,10 @@ namespace RSSreader {
 		}
 
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
-			tbCategory.Text = lbCategory.SelectedItem.ToString();
+			string updateCategoryTitle = lbCategory.SelectedItem.ToString();
+			tbCategory.Text = updateCategoryTitle;
+			btnRemoveCategory.Enabled = true;
+			btnSaveCategory.Enabled = true;
 		}
 
 		private void btnNyPodcast_Click(object sender, EventArgs e) {
@@ -51,25 +52,32 @@ namespace RSSreader {
 
 		private void btnSparaKategori_Click(object sender, EventArgs e) {
 			// Uppdatera Kategori
-		}
-
-		private void btnTaBortKategori_Click(object sender, EventArgs e) {
-			// Ta bort Kategori
-			MessageBox.Show("TEST");
-			string categoryToRemove = lbCategory.SelectedItem.ToString();
-			RemoveCategory(categoryToRemove);
-
+			if (!(lbCategory.SelectedItem.ToString() == null)) {
+				string oldCategory = lbCategory.SelectedItem.ToString();
+				string newCategory = tbCategory.Text.ToString();
+				if ((Validater.NotEmpty(oldCategory)) && (Validater.NotEmpty(newCategory))) {
+					var updateCat = listOfCategory.FirstOrDefault((nv) => nv.title == oldCategory);
+					updateCat.title = newCategory;
+					Dialog.CategoryUpdated();
+					UpdateCategoryList();
+				}
+				else {
+					Dialog.EmptyInput();
+				}
+			}
+			else {
+				return;
+			}
 		}
 		private void tbURL_TextChanged(object sender, EventArgs e) {
 
 		}
 		// TA BORT DENNA //
 		// DETTA BÖR VARA EN EGEN KLASS... //
-		public void RemoveCategory(string removeCat) {
-			listOfCategory.RemoveAll((x) => x.title == removeCat);
-			MessageBox.Show(removeCat + " is removed.");
+		public void RemoveCategory(string categoryToRemove) {
+			listOfCategory.RemoveAll((x) => x.title == categoryToRemove);
 			UpdateCategoryList();
-
+			Dialog.CategoryRemoved();
 		}
 		public void UpdateCategoryList() {
 			lbCategory.Items.Clear();
@@ -80,10 +88,10 @@ namespace RSSreader {
 		}
 		public void AddCat(string catTitle) {
 			bool doesExist = false;
-			if (validator.NotEmpty(catTitle)){ 
+			if (Validater.NotEmpty(catTitle)){ 
 				foreach (var c in listOfCategory) {
 					if (c.title == catTitle) {
-						MessageBox.Show("This category already exist.");
+						Dialog.CatogeryExist();
 						tbCategory.Focus();
 						doesExist = true;
 					}
@@ -92,15 +100,36 @@ namespace RSSreader {
 					Category createCat = new Category(catTitle);
 					listOfCategory.Add(createCat);
 					tbCategory.Clear();
-					MessageBox.Show("Category added!");
+					Dialog.CategoryAdded();
+					if (btnRemoveCategory.Enabled) {
+						btnRemoveCategory.Enabled = false;
+					}
 				}
 			}
 			else {
-				ErrorMessage.EmptyInput();
+				Dialog.EmptyInput();
 			}
 		}
 		private void btnRemoveCategory_Click(object sender, EventArgs e) {
-
+			string categoryToRemove = lbCategory.SelectedItem.ToString();
+			bool doesExist = false;
+			if (Validater.NotEmpty(categoryToRemove)) {
+				foreach (var c in listOfCategory) {
+					if (c.title == categoryToRemove) {
+						listOfCategory.Remove(c);
+						UpdateCategoryList();
+						btnRemoveCategory.Enabled = false;
+						doesExist = true;
+						tbCategory.Text = "";
+						Dialog.CategoryRemoved();
+						break;
+					}
+				}
+				if (!doesExist) { 
+					Dialog.CatogeryNotExist();
+					tbCategory.Focus();
+				}
+			}
 		}
 		////////////////////////////////////////
 	}

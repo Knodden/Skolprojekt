@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Validate
+    class Validater
     {
-		public bool IsURL(string URL) {
+		public static bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
 			{
 				if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
@@ -19,7 +19,7 @@ namespace RSSreader.BusinessLayer
 				}
 			}
 		}
-        public bool NotEmpty(string input) 
+        public static bool NotEmpty(string input) 
         {
             if(!(string.IsNullOrEmpty(input)))
             {

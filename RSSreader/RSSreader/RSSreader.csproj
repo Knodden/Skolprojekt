@@ -47,12 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLayer\ErrorMessage.cs" />
+    <Compile Include="BusinessLayer\Dialog.cs" />
     <Compile Include="BusinessLayer\Interval.cs" />
     <Compile Include="BusinessLayer\Category.cs" />
     <Compile Include="BusinessLayer\ListHandler.cs" />
     <Compile Include="BusinessLayer\Podcast.cs" />
-    <Compile Include="BusinessLayer\Validate.cs" />
+    <Compile Include="BusinessLayer\Validater.cs" />
     <Compile Include="DataAcessLayer\FileHandler.cs" />
     <Compile Include="DataAcessLayer\XML.cs" />
     <Compile Include="Form1.cs">

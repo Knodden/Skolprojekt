@@ -10,18 +10,6 @@ namespace RSSreader.BusinessLayer {
 		List<Podcast> listOfPodcast = new List<Podcast>();
 		List<Category> listOfCategory = new List<Category>();
 
-		public void TestCreate() {
-			Category cat1 = new Category("Titel1");
-			Category cat2 = new Category("Titel2");
-			Category cat3 = new Category("Titel3");
-			Category cat4 = new Category("Titel4");
-			Category cat5 = new Category("Titel5");
-			listOfCategory.Add(cat1);
-			listOfCategory.Add(cat2);
-			listOfCategory.Add(cat3);
-			listOfCategory.Add(cat4);
-			listOfCategory.Add(cat5);
-		}
 		public List<Category> sendCatList() {
 			return listOfCategory;
 		}
