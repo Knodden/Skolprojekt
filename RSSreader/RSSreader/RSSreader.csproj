@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Dialog.cs" />
+    <Compile Include="BusinessLayer\Episode.cs" />
     <Compile Include="BusinessLayer\Interval.cs" />
     <Compile Include="BusinessLayer\Category.cs" />
     <Compile Include="BusinessLayer\ListHandler.cs" />
