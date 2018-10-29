@@ -10,17 +10,15 @@ namespace RSSreader.DataAcessLayer
 {
     class FileHandler
     {
-        
-        
         public void Exists ()
         {
-            var dir = @"C:\Users\Dator\source\repos\Skolprojekt\RSSreader\RSSreader\DataAcessLayer\XMLFiles\";
+            var dir = @".\RSSreader\RSSreader\DataAcessLayer\XMLFiles\"; 
             var filePath1 = dir + "\\Category.xml";
             var filePath2 = dir + "\\Podcast.xml";
             if(!Directory.Exists(dir)) 
-           {
+            {
                 Directory.CreateDirectory(dir);
-           }
+            }
                if(!File.Exists(filePath1)) 
                {
                     File.Create(filePath1);
@@ -34,3 +32,5 @@ namespace RSSreader.DataAcessLayer
 
     }
 }
+
+//var dir = @"C:\Users\Dator\source\repos\Skolprojekt\RSSreader\RSSreader\DataAcessLayer\XMLFiles\";
