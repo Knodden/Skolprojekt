@@ -30,5 +30,18 @@ namespace RSSreader.BusinessLayer
                 return false;
             }
 		}
-    }
+		public static bool CheckCategoryExist(List<Category> categories, string newCategory) {
+			bool doesExist = false;
+			foreach (var c in categories) {
+				if (c.title == newCategory) {
+					Dialog.CatogeryExist();
+					doesExist = true;
+				}
+				else {
+					doesExist = false;
+				}
+			};
+			return doesExist;
+		}
+	}
 }

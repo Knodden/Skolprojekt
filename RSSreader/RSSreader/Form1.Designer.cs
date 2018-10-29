@@ -224,7 +224,6 @@
 			// 
 			// btnSaveCategory
 			// 
-			this.btnSaveCategory.Enabled = false;
 			this.btnSaveCategory.Location = new System.Drawing.Point(763, 196);
 			this.btnSaveCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSaveCategory.Name = "btnSaveCategory";
@@ -295,13 +294,14 @@
 			// 
 			// btnRemoveCategory
 			// 
-			this.btnRemoveCategory.Enabled = false;
 			this.btnRemoveCategory.Location = new System.Drawing.Point(635, 222);
 			this.btnRemoveCategory.Name = "btnRemoveCategory";
 			this.btnRemoveCategory.Size = new System.Drawing.Size(248, 23);
 			this.btnRemoveCategory.TabIndex = 22;
 			this.btnRemoveCategory.Text = "Remove";
 			this.btnRemoveCategory.UseVisualStyleBackColor = true;
+			this.btnRemoveCategory.UseWaitCursor = true;
+			this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
 			// 
 			// Form1
 			// 

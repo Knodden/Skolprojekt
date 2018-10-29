@@ -4,18 +4,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RSSreader.Properties;
+using RSSreader;
 
 namespace RSSreader.BusinessLayer {
 	class ListHandler {
-		List<Podcast> listOfPodcast = new List<Podcast>();
-		List<Category> listOfCategory = new List<Category>();
+		private static List<Podcast> listOfPodcast = new List<Podcast>();
+		private static List<Category> listOfCategory = new List<Category>();
 
-		public List<Category> sendCatList() {
+		public static List<Category> ListCategory() {
 			return listOfCategory;
 		}
-		public static List<Category> sortList(List<Category> listToSort) {
+		public static void AddCategory(string newCategory) {
+			if (Validater.NotEmpty(newCategory)) {
+				if (Validater.CheckCategoryExist(listOfCategory, newCategory)) {
+					Dialog.CatogeryExist();
+				}
+				else {
+					Category createCat = new Category(newCategory);
+					listOfCategory.Add(createCat);
+					Dialog.CategoryAdded();
+				}
+			}
+			else {
+				Dialog.EmptyInput();
+			}
+		}
+		internal static bool UpdateCategory(string oldCategory, string newCategory) {
+			bool isCategoryUpdated = false;
+			if((Validater.NotEmpty(oldCategory)) && (Validater.NotEmpty(newCategory))) {
+				if (!(oldCategory == newCategory)) {
+					var updateCat = listOfCategory.FirstOrDefault((nv) => nv.title == oldCategory);
+					updateCat.title = newCategory;
+					Dialog.CategoryUpdated();
+					isCategoryUpdated = true;
+				}
+				else {
+					Dialog.NoChange();
+				}
+			}
+			else {
+				Dialog.EmptyInput();
+			}
+			return isCategoryUpdated;
+		}
+		public static List<Category> SortCategoryList(List<Category> listToSort) {
 			var newList = listToSort.OrderBy((a) => a.title).ToList();
 			return newList;
 		}
+		internal static void RemoveCategory(string categoryRemove) {
+			bool doesExist = false;
+			if (Validater.NotEmpty(categoryRemove)) {
+				foreach (var c in listOfCategory) {
+					if (c.title == categoryRemove) {
+						listOfCategory.Remove(c);
+						doesExist = true;
+						Dialog.CategoryRemoved();
+						break;
+					}
+				}
+				if (!doesExist) {
+					Dialog.CatogeryNotExist();
+				}
+			}
+		}
+		/* ---------------- */
+		public List<Podcast> ListPodcast() {
+			return listOfPodcast;
+		}
+
 	}
 }

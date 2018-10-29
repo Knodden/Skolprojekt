@@ -7,13 +7,11 @@ using System.Windows.Forms;
 
 namespace RSSreader.BusinessLayer {
 	class Dialog {
-		// Tar in en Expectation och skapar en Message.Box
-		// Måste kanske inte vara ett expecation..
 		internal static void EmptyInput() {
 			MessageBox.Show("Can't leave input empty. Please try again.");
 		}
 		internal static void CatogeryExist() {
-			MessageBox.Show("This category does alerady exist");
+			MessageBox.Show("This category does alerady exist. Please try again.");
 		}
 		internal static void CatogeryNotExist() {
 			MessageBox.Show("This category doesn't exist. Please try again");
@@ -26,6 +24,9 @@ namespace RSSreader.BusinessLayer {
 		}
 		internal static void CategoryUpdated() {
 			MessageBox.Show("Category Updated");
+		}
+		internal static void NoChange() {
+			MessageBox.Show("No change have been done.");
 		}
 	}
 }
