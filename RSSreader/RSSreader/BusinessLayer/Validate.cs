@@ -10,19 +10,18 @@ namespace RSSreader.BusinessLayer
     {
 		public bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
+			{
+				if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+		}
+        public bool NotEmpty(string input) 
         {
-			if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$"))
-            {
-                return true;
-            }
-           else
-           {
-               return false;
-           }
-                
-        bool NotEmpty(string Input) 
-        {
-            if(Input != null) 
+            if(!(string.IsNullOrEmpty(input)))
             {
                 return true;
             }
@@ -32,7 +31,4 @@ namespace RSSreader.BusinessLayer
             }
 		}
     }
- }
-}
-
 }

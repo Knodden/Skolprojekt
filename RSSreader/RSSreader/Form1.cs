@@ -96,7 +96,7 @@ namespace RSSreader {
 				}
 			}
 			else {
-				ErrorMessage.CatogeryExist();
+				ErrorMessage.EmptyInput();
 			}
 		}
 		private void btnRemoveCategory_Click(object sender, EventArgs e) {

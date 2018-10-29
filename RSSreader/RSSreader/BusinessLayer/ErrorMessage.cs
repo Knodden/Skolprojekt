@@ -12,5 +12,8 @@ namespace RSSreader.BusinessLayer {
 		public static void CatogeryExist() {
 			MessageBox.Show("This category does alerady exist");
 		}
+		public static void EmptyInput() {
+			MessageBox.Show("Can't leave input empty. Please try again.");
+		}
 	}
 }
