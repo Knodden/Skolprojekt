@@ -220,7 +220,7 @@
 			this.btnNewCategory.Text = "New";
 			this.btnNewCategory.UseVisualStyleBackColor = true;
 			this.btnNewCategory.UseWaitCursor = true;
-			this.btnNewCategory.Click += new System.EventHandler(this.btnNyKategori_Click);
+			this.btnNewCategory.Click += new System.EventHandler(this.btnNewCategory_Click);
 			// 
 			// btnSaveCategory
 			// 
@@ -233,7 +233,7 @@
 			this.btnSaveCategory.Text = "Save";
 			this.btnSaveCategory.UseVisualStyleBackColor = true;
 			this.btnSaveCategory.UseWaitCursor = true;
-			this.btnSaveCategory.Click += new System.EventHandler(this.btnSparaKategori_Click);
+			this.btnSaveCategory.Click += new System.EventHandler(this.btnSaveCategory_Click);
 			// 
 			// btnNewPodcast
 			// 
@@ -245,7 +245,7 @@
 			this.btnNewPodcast.Text = "New";
 			this.btnNewPodcast.UseVisualStyleBackColor = true;
 			this.btnNewPodcast.UseWaitCursor = true;
-			this.btnNewPodcast.Click += new System.EventHandler(this.btnNyPodcast_Click);
+			this.btnNewPodcast.Click += new System.EventHandler(this.btnNewPodcast_Click);
 			// 
 			// btnSavePodcast
 			// 
@@ -258,7 +258,7 @@
 			this.btnSavePodcast.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.btnSavePodcast.UseVisualStyleBackColor = true;
 			this.btnSavePodcast.UseWaitCursor = true;
-			this.btnSavePodcast.Click += new System.EventHandler(this.btnSparaPodcast_Click);
+			this.btnSavePodcast.Click += new System.EventHandler(this.btnSavePodcast_Click);
 			// 
 			// btnRemovePodcast
 			// 
@@ -270,7 +270,7 @@
 			this.btnRemovePodcast.Text = "Remove";
 			this.btnRemovePodcast.UseVisualStyleBackColor = true;
 			this.btnRemovePodcast.UseWaitCursor = true;
-			this.btnRemovePodcast.Click += new System.EventHandler(this.btnTaBortPodcast_Click);
+			this.btnRemovePodcast.Click += new System.EventHandler(this.btnRemovePodcast_Click);
 			// 
 			// lvEpisodes
 			// 

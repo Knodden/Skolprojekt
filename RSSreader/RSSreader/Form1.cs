@@ -32,25 +32,25 @@ namespace RSSreader {
 			btnSaveCategory.Enabled = true;
 		}
 
-		private void btnNyPodcast_Click(object sender, EventArgs e) {
+		private void btnNewPodcast_Click(object sender, EventArgs e) {
 			// Skapa ny Podcast
 		}
 
-		private void btnSparaPodcast_Click(object sender, EventArgs e) {
+		private void btnSavePodcast_Click(object sender, EventArgs e) {
 			// Uppdatera Podcast
 		}
 
-		private void btnTaBortPodcast_Click(object sender, EventArgs e) {
+		private void btnRemovePodcast_Click(object sender, EventArgs e) {
 			// Ta bort en Podcast
 		}
 
-		private void btnNyKategori_Click(object sender, EventArgs e) {
+		private void btnNewCategory_Click(object sender, EventArgs e) {
 			string newCat = tbCategory.Text;
 			AddCat(newCat);
 			UpdateCategoryList();
 		}
 
-		private void btnSparaKategori_Click(object sender, EventArgs e) {
+		private void btnSaveCategory_Click(object sender, EventArgs e) {
 			// Uppdatera Kategori
 			if (!(lbCategory.SelectedItem.ToString() == null)) {
 				string oldCategory = lbCategory.SelectedItem.ToString();
