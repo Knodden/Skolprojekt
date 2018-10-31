@@ -16,7 +16,6 @@ namespace RSSreader.DataAcessLayer
         {
             var dir = @".\RSSreader\RSSreader\DataAcessLayer\XMLFiles\"; 
             var filePath1 = dir + "\\Category.xml";
-            //var filePath2 = dir + "\\Podcast.xml";
             if(!Directory.Exists(dir)) 
             {
                 Directory.CreateDirectory(dir);
@@ -25,32 +24,19 @@ namespace RSSreader.DataAcessLayer
             {
                 File.Create(filePath1);
             }
-
-               //if (!File.Exists(filePath2))
-               //{
-               // File.Create(filePath2);
-               //}
         }
+
         public string Exists2()
         {
             var dir = @".\RSSreader\RSSreader\DataAcessLayer\XMLFiles\";
-            //var filePath1 = dir + "\\Category.xml";
             var filePath2 = dir + "\\Podcast.xml";
             if (!Directory.Exists(dir))
             {
                 Directory.CreateDirectory(dir);
             }
-            //if (!File.Exists(filePath1))
-            //{
-            //  File.Create(filePath1);
-            //}
-            
-            //if (!File.Exists(filePath2))
-            //{
-            //    File.Create(filePath2);
-            //}
             return filePath2;
         }
+
         public void SavePodcasts(List<Podcast> podcasts)
         {
             string path = Exists2();
@@ -59,6 +45,7 @@ namespace RSSreader.DataAcessLayer
                 new XML().WritePodcasts(podcasts, fs);
             }
         }
+
         public List<Podcast> LoadPodcasts()
         {
             var path = Exists2();
