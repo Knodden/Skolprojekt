@@ -59,9 +59,9 @@ namespace RSSreader.BusinessLayer
             bool doesExist = false;
             foreach(var p in podcasts)
             {
-                if(p.Url == newUrl)
+                if(p.URL == newUrl)
                 {
-                    Dialog.UrlExists();
+                    Dialog.NotURL();
                     doesExist = true;
                 }
                 else

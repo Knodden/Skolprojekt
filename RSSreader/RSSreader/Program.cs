@@ -14,10 +14,7 @@ namespace RSSreader {
 		/// </summary>
 		[STAThread]
 		static void Main() {
-            //List<Podcast> podcasts = new List<Podcast> { new Podcast() { Title = "Berras äventyr" } };
-            //new FileHandler().SavePodcasts(podcasts);
-            //var l = new FileHandler().LoadPodcasts();
-
+       
 
             Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

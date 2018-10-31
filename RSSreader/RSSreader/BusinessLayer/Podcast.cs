@@ -10,16 +10,22 @@ namespace RSSreader.BusinessLayer
     {
 		public string Title { get; set; }	
 		public string URL { get; set; }
-		public int Episodes { get; set; }
+		public List<Episode> Episodes { get; set; }
 		public int UpdateInterval { get; set; }
 		public string Category { get; set; }
 		public Podcast(string podcastURL, string podcastTitle, int podcastInterval, string podcastCategory) {
 			URL = podcastURL;
 			Title = podcastTitle;
-			Episodes = 0;
+			Episodes = new List<Episode>();
 			UpdateInterval = podcastInterval;
 			Category = podcastCategory;
 		}
-	}
+
+        public Podcast()
+        {
+            Episodes = new List<Episode>();
+        }
+
+    }
 }
 
