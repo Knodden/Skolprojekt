@@ -25,8 +25,20 @@ namespace RSSreader.BusinessLayer {
 		internal static void CategoryUpdated() {
 			MessageBox.Show("Category Updated");
 		}
+		internal static void PodcastAdded() {
+			MessageBox.Show("Podcast added");
+		}
+		internal static void PodcastExist() {
+			MessageBox.Show("This podcast does already exist. Please try again");
+		}
+		internal static void PodcastNotExist() {
+			MessageBox.Show("This podcast doesn't exist. Please try again");
+		}
 		internal static void NoChange() {
 			MessageBox.Show("No change have been done.");
+		}
+		internal static void NotInt() {
+			MessageBox.Show("The input couldn't be converted to an integer.");
 		}
 	}
 }

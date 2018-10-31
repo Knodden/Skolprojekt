@@ -33,8 +33,21 @@ namespace RSSreader.BusinessLayer
 		public static bool CheckCategoryExist(List<Category> categories, string newCategory) {
 			bool doesExist = false;
 			foreach (var c in categories) {
-				if (c.title == newCategory) {
+				if (c.Title == newCategory) {
 					Dialog.CatogeryExist();
+					doesExist = true;
+				}
+				else {
+					doesExist = false;
+				}
+			};
+			return doesExist;
+		}
+		internal static bool CheckPodcastExist(List<Podcast> podcast, string podcastURL) {
+			bool doesExist = false;
+			foreach (var c in podcast) {
+				if (c.URL == podcastURL) {
+					Dialog.PodcastExist();
 					doesExist = true;
 				}
 				else {

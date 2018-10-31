@@ -173,6 +173,7 @@
 			// 
 			// cbPodcastInterval
 			// 
+			this.cbPodcastInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbPodcastInterval.FormattingEnabled = true;
 			this.cbPodcastInterval.Location = new System.Drawing.Point(323, 222);
 			this.cbPodcastInterval.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -193,6 +194,7 @@
 			// 
 			// cbPodcastCategory
 			// 
+			this.cbPodcastCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbPodcastCategory.FormattingEnabled = true;
 			this.cbPodcastCategory.Location = new System.Drawing.Point(453, 222);
 			this.cbPodcastCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
