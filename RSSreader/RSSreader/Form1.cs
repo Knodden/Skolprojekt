@@ -19,6 +19,10 @@ namespace RSSreader {
 		private void Form1_Load(object sender, EventArgs e) {
 			// Det som sker när programmet startar.
 			// Ladda in XML från Podcast och Kategori och fyll listorna.
+			FillPodcastListBox();
+			FillCatogoryListBox();
+			FillCategoryCheckbox();
+			FillIntervalCheckbox();
 
 		}
 
@@ -31,9 +35,13 @@ namespace RSSreader {
 				tbCategory.Text = updateCategoryTitle;
 			}
 		}
-
 		private void btnNewPodcast_Click(object sender, EventArgs e) {
-			// Skapa ny Podcast
+			string podcastURL = tbURL.Text.ToString();
+			string podcastTitle = tbPodcastTitle.Text.ToString();
+			var podcastInterval = cbPodcastInterval.SelectedItem.ToString();
+			var podcastCategory = cbPodcastCategory.SelectedItem.ToString();
+			ListHandler.AddPodcast(podcastURL, podcastTitle, podcastInterval, podcastCategory.ToString());
+			FillPodcastListBox();
 		}
 
 		private void btnSavePodcast_Click(object sender, EventArgs e) {
@@ -64,12 +72,53 @@ namespace RSSreader {
 		}
 		public void FillCatogoryListBox() {
 			lbCategory.Items.Clear();
-
 			var sortedList = ListHandler.SortCategoryList(ListHandler.ListCategory());
 			foreach (var sc in sortedList) {
-				lbCategory.Items.Add(sc.title);
+				lbCategory.Items.Add(sc.Title);
 			};
+			FillCategoryCheckbox();
 		}
-
-    }
+		public void FillIntervalCheckbox() {
+			cbPodcastInterval.Items.Clear();
+			var intervalLIst = Interval.PossibleIntervals();
+			if (intervalLIst.Any()) {
+				foreach (var c in intervalLIst) {
+					cbPodcastInterval.Items.Add(c);
+				}
+			}
+			cbPodcastInterval.SelectedIndex = 0;
+		}
+		public void FillCategoryCheckbox() {
+			cbPodcastCategory.Items.Clear();
+			var categoryList = ListHandler.ListCategory();
+			if (categoryList.Any()) {
+				foreach (var c in categoryList) {
+					cbPodcastCategory.Items.Add(c.Title);
+				}
+			}
+			if (categoryList.Any()) { 
+				cbPodcastCategory.SelectedIndex = 0;
+				btnNewPodcast.Enabled = true;
+				cbPodcastCategory.Enabled = true;
+			}
+			else {
+				btnNewPodcast.Enabled = false;
+				cbPodcastCategory.Enabled = false;
+			}
+		}
+		public void FillPodcastListBox() {
+			lvPodcasts.Items.Clear();
+			var podcastList = ListHandler.SortPodcastList();
+			if (podcastList.Any()) {
+				foreach (var p in podcastList) {
+					ListViewItem podcast = new ListViewItem();
+					podcast.Text = p.Episodes.ToString();
+					podcast.SubItems.Add(p.Title);
+					podcast.SubItems.Add("5");
+					podcast.SubItems.Add(p.Category);
+					lvPodcasts.Items.Add(podcast);
+				}
+			}
+		}
+	}
 }

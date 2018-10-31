@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer {
 	public class Category {
-		public string title { get; set; }
+		public string Title { get; set; }
 		public Category(string categoryTitle) {
-			title = categoryTitle;
+			Title = categoryTitle;
 		}
-
-        protected Category()
-        {
-        }
 	}
 }

@@ -9,11 +9,11 @@ namespace RSSreader.BusinessLayer
 {
     class Interval
     {
-		private static System.Timers.Timer intervalTimer;
-		// Tar in en String och en Int för att skapa en timer som uppdaterar
-		//public static void StartTimer(string url, int interval) {
-		//	int intervalSeconds = interval * 60;
-		//	intervalTimer = new System.Timers.Timer(intervalSeconds);
-		//}
-    }
+		//private static System.Timers.Timer intervalTimer;
+		private static List<int> possibleIntervals = new List<int>(new int[] { 1, 5, 10, 15 });
+
+		public static List<int> PossibleIntervals() { 
+			return possibleIntervals;
+		}
+	}
 }
