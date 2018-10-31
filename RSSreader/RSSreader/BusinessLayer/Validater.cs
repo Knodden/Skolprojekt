@@ -43,5 +43,22 @@ namespace RSSreader.BusinessLayer
 			};
 			return doesExist;
 		}
+        public static bool CheckUrlExists(List<Podcast> podcasts, string newUrl)
+        {
+            bool doesExist = false;
+            foreach(var p in podcasts)
+            {
+                if(p.Url == newUrl)
+                {
+                    Dialog.UrlExists();
+                    doesExist = true;
+                }
+                else
+                {
+                    doesExist = false;
+                }
+            };
+            return doesExist;
+        }
 	}
 }

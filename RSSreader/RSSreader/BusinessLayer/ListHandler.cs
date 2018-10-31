@@ -5,8 +5,8 @@ using RSSreader.DataAcessLayer;
 
 namespace RSSreader.BusinessLayer {
 	class ListHandler {
-		private static List<Podcast> listOfPodcast = new List<Podcast>();
-		private static List<Category> listOfCategory = new List<Category>();
+		public static List<Podcast> listOfPodcast = new List<Podcast>();
+		public static List<Category> listOfCategory = new List<Category>();
 
 		public static List<Category> ListCategory() {
 			return listOfCategory;
@@ -15,6 +15,7 @@ namespace RSSreader.BusinessLayer {
 			if (Validater.NotEmpty(newCategory)) {
 				if (Validater.CheckCategoryExist(listOfCategory, newCategory)) {
 					Dialog.CatogeryExist();
+                    
 				}
 				else {
 					Category createCat = new Category(newCategory);
@@ -68,6 +69,6 @@ namespace RSSreader.BusinessLayer {
 		public List<Podcast> ListPodcast() {
 			return listOfPodcast;
 		}
-
+        
 	}
 }

@@ -64,11 +64,12 @@ namespace RSSreader {
 		}
 		public void FillCatogoryListBox() {
 			lbCategory.Items.Clear();
-			
+
 			var sortedList = ListHandler.SortCategoryList(ListHandler.ListCategory());
 			foreach (var sc in sortedList) {
 				lbCategory.Items.Add(sc.title);
 			};
 		}
-	}
+
+    }
 }
