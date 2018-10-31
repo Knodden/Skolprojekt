@@ -38,8 +38,8 @@ namespace RSSreader {
 		private void btnNewPodcast_Click(object sender, EventArgs e) {
 			string podcastURL = tbURL.Text.ToString();
 			string podcastTitle = tbPodcastTitle.Text.ToString();
-			int podcastInterval = 5;
-			Object podcastCategory = cbPodcastCategory.SelectedItem;
+			var podcastInterval = cbPodcastInterval.SelectedItem.ToString();
+			var podcastCategory = cbPodcastCategory.SelectedItem.ToString();
 			ListHandler.AddPodcast(podcastURL, podcastTitle, podcastInterval, podcastCategory.ToString());
 			FillPodcastListBox();
 		}
@@ -86,6 +86,7 @@ namespace RSSreader {
 					cbPodcastInterval.Items.Add(c);
 				}
 			}
+			cbPodcastInterval.SelectedIndex = 0;
 		}
 		public void FillCategoryCheckbox() {
 			cbPodcastCategory.Items.Clear();
@@ -94,6 +95,15 @@ namespace RSSreader {
 				foreach (var c in categoryList) {
 					cbPodcastCategory.Items.Add(c.Title);
 				}
+			}
+			if (categoryList.Any()) { 
+				cbPodcastCategory.SelectedIndex = 0;
+				btnNewPodcast.Enabled = true;
+				cbPodcastCategory.Enabled = true;
+			}
+			else {
+				btnNewPodcast.Enabled = false;
+				cbPodcastCategory.Enabled = false;
 			}
 		}
 		public void FillPodcastListBox() {

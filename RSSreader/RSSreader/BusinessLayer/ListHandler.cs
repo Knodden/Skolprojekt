@@ -69,14 +69,15 @@ namespace RSSreader.BusinessLayer {
 			return listOfPodcast;
 		}
 		public static void AddPodcast
-			(string nPodcastURL, string nPodcastTitle, int nPodcastInterval, string nPodcastCategory) {
-			if ((Validater.NotEmpty(nPodcastURL)) && (Validater.NotEmpty(nPodcastTitle)) && (Validater.NotEmpty(nPodcastCategory))) {
+			(string nPodcastURL, string nPodcastTitle, string nPodcastInterval, string nPodcastCategory) {
+			if ((Validater.NotEmpty(nPodcastURL)) && (Validater.NotEmpty(nPodcastTitle)) && (Validater.NotEmpty(nPodcastInterval)) &&(Validater.NotEmpty(nPodcastCategory))) {
 				if ((Validater.IsURL(nPodcastURL))) {
 					if (Validater.CheckPodcastExist(listOfPodcast, nPodcastURL)) {
 						Dialog.PodcastExist();
 					}
 					else {
-						Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastInterval, nPodcastCategory);
+						int nPodcastIntervalInt = int.Parse(nPodcastInterval);
+						Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
 						listOfPodcast.Add(createPodcast);
 						Dialog.PodcastAdded();
 					}

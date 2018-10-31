@@ -11,7 +11,7 @@ namespace RSSreader.BusinessLayer
 		public static bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
 			{
-				if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
+				if(!(URL == "")){ //if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
 					return true;
 				}
 				else {
@@ -34,7 +34,6 @@ namespace RSSreader.BusinessLayer
 			bool doesExist = false;
 			foreach (var c in categories) {
 				if (c.Title == newCategory) {
-					Dialog.CatogeryExist();
 					doesExist = true;
 				}
 				else {
@@ -47,7 +46,6 @@ namespace RSSreader.BusinessLayer
 			bool doesExist = false;
 			foreach (var c in podcast) {
 				if (c.URL == podcastURL) {
-					Dialog.PodcastExist();
 					doesExist = true;
 				}
 				else {
