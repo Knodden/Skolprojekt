@@ -22,6 +22,7 @@ namespace RSSreader {
 			FillPodcastListBox();
 			FillCatogoryListBox();
 			FillCategoryCheckbox();
+			FillIntervalCheckbox();
 
 		}
 
@@ -76,6 +77,15 @@ namespace RSSreader {
 				lbCategory.Items.Add(sc.Title);
 			};
 			FillCategoryCheckbox();
+		}
+		public void FillIntervalCheckbox() {
+			cbPodcastInterval.Items.Clear();
+			var intervalLIst = Interval.PossibleIntervals();
+			if (intervalLIst.Any()) {
+				foreach (var c in intervalLIst) {
+					cbPodcastInterval.Items.Add(c);
+				}
+			}
 		}
 		public void FillCategoryCheckbox() {
 			cbPodcastCategory.Items.Clear();

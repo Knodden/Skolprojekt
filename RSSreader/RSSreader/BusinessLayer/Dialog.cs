@@ -40,5 +40,9 @@ namespace RSSreader.BusinessLayer {
 		internal static void NotInt() {
 			MessageBox.Show("The input couldn't be converted to an integer.");
 		}
+
+		internal static void NotURL() {
+			MessageBox.Show("Not an valid URL. Please try again");
+		}
 	}
 }
