@@ -21,6 +21,7 @@ namespace RSSreader.BusinessLayer {
 					Category createCat = new Category(newCategory);
 					listOfCategory.Add(createCat);
 					Dialog.CategoryAdded();
+                    new FileHandler().SaveCategories(listOfCategory);
 				}
 			}
 			else {
@@ -39,6 +40,7 @@ namespace RSSreader.BusinessLayer {
 						updateCat.Title = newCategory;
 						Dialog.CategoryUpdated();
 						isCategoryUpdated = true;
+                        new FileHandler().SaveCategories(listOfCategory);
 					}
 				}
 				else {
@@ -66,11 +68,12 @@ namespace RSSreader.BusinessLayer {
 							listOfCategory.Remove(c);
 							doesExist = true;
 							Dialog.CategoryRemoved();
-							break;
+                            break;
 						}
 					}
 				}
-				if (!doesExist) {
+                new FileHandler().SaveCategories(listOfCategory);
+                if (!doesExist) {
 					Dialog.CatogeryNotExist();
 				}
 			}
@@ -92,6 +95,7 @@ namespace RSSreader.BusinessLayer {
 						Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
 						listOfPodcast.Add(createPodcast);
 						Dialog.PodcastAdded();
+                        new FileHandler().SavePodcasts(listOfPodcast);
 					}
 				}
 				else {
@@ -120,7 +124,8 @@ namespace RSSreader.BusinessLayer {
 						postcastRemoved = true;
 						break;
 					}
-				}	
+                    new FileHandler().SavePodcasts(listOfPodcast);
+                }	
 			}
 			return postcastRemoved;
 		}
