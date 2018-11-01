@@ -7,8 +7,9 @@ namespace RSSreader.BusinessLayer {
 	class ListHandler {
 		private static List<Podcast> listOfPodcast = new List<Podcast>();
 		private static List<Category> listOfCategory = new List<Category>();
+		private static FileHandler Files = new FileHandler();
 
-		public static List<Category> ListCategory() {
+		public static List<Category> ListCategory() { 
 			return listOfCategory;
 		}
 		public static void AddCategory(string newCategory) {
@@ -26,6 +27,8 @@ namespace RSSreader.BusinessLayer {
 				Dialog.EmptyInput();
 			}
 		}
+
+
 		internal static bool UpdateCategory(string oldCategory, string newCategory) {
 			bool isCategoryUpdated = false;
 			if((Validater.NotEmpty(oldCategory)) && (Validater.NotEmpty(newCategory))) {
@@ -113,8 +116,15 @@ namespace RSSreader.BusinessLayer {
 			return newList;
 		}
 		internal static void RemovePodcast(string categoryRemove) {
-			bool doesExist = false;
-			
+			bool doesExist = false;	
+		}
+		internal static void LoadXML() {
+			listOfCategory = Files.LoadCategories();
+			listOfPodcast = Files.LoadPodcasts();
+		}
+		internal static void SaveToXML() {
+			Files.SaveCategories(listOfCategory);
+			Files.SavePodcasts(listOfPodcast);
 		}
 	}
 }

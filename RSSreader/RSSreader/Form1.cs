@@ -19,13 +19,12 @@ namespace RSSreader {
 		private void Form1_Load(object sender, EventArgs e) {
 			// Det som sker när programmet startar.
 			// Ladda in XML från Podcast och Kategori och fyll listorna.
+			ListHandler.LoadXML();
 			FillPodcastListBox();
 			FillCatogoryListBox();
 			FillCategoryCheckbox();
 			FillIntervalCheckbox();
-
 		}
-
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
 			if(lbCategory.SelectedItem == null){
 				return;
@@ -76,6 +75,7 @@ namespace RSSreader {
 			foreach (var sc in sortedList) {
 				lbCategory.Items.Add(sc.Title);
 			};
+			ListHandler.SaveToXML();
 			FillCategoryCheckbox();
 		}
 		public void FillIntervalCheckbox() {
@@ -119,6 +119,7 @@ namespace RSSreader {
 					lvPodcasts.Items.Add(podcast);
 				}
 			}
+			ListHandler.SaveToXML();
 		}
 	}
 }
