@@ -32,7 +32,7 @@
 			this.lbCategory = new System.Windows.Forms.ListBox();
 			this.lbCategoryHeader = new System.Windows.Forms.Label();
 			this.lbURL = new System.Windows.Forms.Label();
-			this.tbURL = new System.Windows.Forms.TextBox();
+			this.tbPodcastURL = new System.Windows.Forms.TextBox();
 			this.lbPodcastTitle = new System.Windows.Forms.Label();
 			this.tbPodcastTitle = new System.Windows.Forms.TextBox();
 			this.lbPodcastInterval = new System.Windows.Forms.Label();
@@ -130,16 +130,16 @@
 			this.lbURL.Text = "URL";
 			this.lbURL.UseWaitCursor = true;
 			// 
-			// tbURL
+			// tbPodcastURL
 			// 
-			this.tbURL.AllowDrop = true;
-			this.tbURL.Location = new System.Drawing.Point(16, 222);
-			this.tbURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.tbURL.Name = "tbURL";
-			this.tbURL.Size = new System.Drawing.Size(151, 22);
-			this.tbURL.TabIndex = 6;
-			this.tbURL.UseWaitCursor = true;
-			this.tbURL.TextChanged += new System.EventHandler(this.tbURL_TextChanged);
+			this.tbPodcastURL.AllowDrop = true;
+			this.tbPodcastURL.Location = new System.Drawing.Point(16, 222);
+			this.tbPodcastURL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.tbPodcastURL.Name = "tbPodcastURL";
+			this.tbPodcastURL.Size = new System.Drawing.Size(151, 22);
+			this.tbPodcastURL.TabIndex = 6;
+			this.tbPodcastURL.UseWaitCursor = true;
+			this.tbPodcastURL.TextChanged += new System.EventHandler(this.tbURL_TextChanged);
 			// 
 			// lbPodcastTitle
 			// 
@@ -325,7 +325,7 @@
 			this.Controls.Add(this.lbPodcastInterval);
 			this.Controls.Add(this.tbPodcastTitle);
 			this.Controls.Add(this.lbPodcastTitle);
-			this.Controls.Add(this.tbURL);
+			this.Controls.Add(this.tbPodcastURL);
 			this.Controls.Add(this.lbURL);
 			this.Controls.Add(this.lbCategoryHeader);
 			this.Controls.Add(this.lbCategory);
@@ -352,7 +352,7 @@
 		private System.Windows.Forms.ListBox lbCategory;
 		private System.Windows.Forms.Label lbCategoryHeader;
 		private System.Windows.Forms.Label lbURL;
-		private System.Windows.Forms.TextBox tbURL;
+		private System.Windows.Forms.TextBox tbPodcastURL;
 		private System.Windows.Forms.Label lbPodcastTitle;
 		private System.Windows.Forms.TextBox tbPodcastTitle;
 		private System.Windows.Forms.Label lbPodcastInterval;

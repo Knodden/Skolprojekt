@@ -27,16 +27,19 @@ namespace RSSreader.BusinessLayer {
 				Dialog.EmptyInput();
 			}
 		}
-
-
 		internal static bool UpdateCategory(string oldCategory, string newCategory) {
 			bool isCategoryUpdated = false;
 			if((Validater.NotEmpty(oldCategory)) && (Validater.NotEmpty(newCategory))) {
 				if (!(oldCategory == newCategory)) {
-					var updateCat = listOfCategory.FirstOrDefault((nv) => nv.Title == oldCategory);
-					updateCat.Title = newCategory;
-					Dialog.CategoryUpdated();
-					isCategoryUpdated = true;
+					if (Validater.CheckIfCategoryUsed(oldCategory)) {
+						Dialog.CategoryUsed();
+					}
+					else {
+						var updateCat = listOfCategory.FirstOrDefault((nv) => nv.Title == oldCategory);
+						updateCat.Title = newCategory;
+						Dialog.CategoryUpdated();
+						isCategoryUpdated = true;
+					}
 				}
 				else {
 					Dialog.NoChange();
@@ -51,24 +54,30 @@ namespace RSSreader.BusinessLayer {
 			var newList = listToSort.OrderBy((a) => a.Title).ToList();
 			return newList;
 		}
-		internal static void RemoveCategory(string categoryRemove) {
+		internal static bool RemoveCategory(string categoryRemove) {
 			bool doesExist = false;
 			if (Validater.NotEmpty(categoryRemove)) {
 				foreach (var c in listOfCategory) {
 					if (c.Title == categoryRemove) {
-						listOfCategory.Remove(c);
-						doesExist = true;
-						Dialog.CategoryRemoved();
-						break;
+						if (Validater.CheckIfCategoryUsed(categoryRemove)) {
+							Dialog.CategoryUsed();
+						}
+						else {
+							listOfCategory.Remove(c);
+							doesExist = true;
+							Dialog.CategoryRemoved();
+							break;
+						}
 					}
 				}
 				if (!doesExist) {
 					Dialog.CatogeryNotExist();
 				}
 			}
+			return doesExist;
 		}
 		/* ---------------- */
-		public List<Podcast> ListPodcast() {
+		public static List<Podcast> ListPodcast() {
 			return listOfPodcast;
 		}
 		public static void AddPodcast
@@ -94,29 +103,26 @@ namespace RSSreader.BusinessLayer {
 			}
 		}
 		internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle) {
-			bool isCategoryUpdated = false;
-			if ((Validater.NotEmpty(oldPodcastTitle)) && (Validater.NotEmpty(newPodCastTitle))) {
-				if (!(oldPodcastTitle == newPodCastTitle)) {
-					var updatePodcast = listOfPodcast.FirstOrDefault((np) => np.Title == oldPodcastTitle);
-					updatePodcast.Title = newPodCastTitle;
-					Dialog.CategoryUpdated();
-					isCategoryUpdated = true;
-				}
-				else {
-					Dialog.NoChange();
-				}
-			}
-			else {
-				Dialog.EmptyInput();
-			}
-			return isCategoryUpdated;
+			bool isPodcastUpdated = false;
+
+			return isPodcastUpdated;
 		}
 		public static List<Podcast> SortPodcastList() {
 			var newList = listOfPodcast.OrderBy((a) => a.Title).ToList();
 			return newList;
 		}
-		internal static void RemovePodcast(string categoryRemove) {
-			bool doesExist = false;	
+		internal static bool RemovePodcast(string podcastRemove) {
+			bool postcastRemoved = false;
+			if (Validater.NotEmpty(podcastRemove)) {
+				foreach (var c in listOfPodcast) {
+					if (c.Title == podcastRemove) {
+						listOfPodcast.Remove(c);
+						postcastRemoved = true;
+						break;
+					}
+				}	
+			}
+			return postcastRemoved;
 		}
 		internal static void LoadXML() {
 			listOfCategory = Files.LoadCategories();

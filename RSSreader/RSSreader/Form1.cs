@@ -35,7 +35,7 @@ namespace RSSreader {
 			}
 		}
 		private void btnNewPodcast_Click(object sender, EventArgs e) {
-			string podcastURL = tbURL.Text.ToString();
+			string podcastURL = tbPodcastURL.Text.ToString();
 			string podcastTitle = tbPodcastTitle.Text.ToString();
 			var podcastInterval = cbPodcastInterval.SelectedItem.ToString();
 			var podcastCategory = cbPodcastCategory.SelectedItem.ToString();
@@ -48,7 +48,11 @@ namespace RSSreader {
 		}
 
 		private void btnRemovePodcast_Click(object sender, EventArgs e) {
-			// Ta bort en Podcast
+			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems.ToString())) {
+				FillPodcastListBox();
+				tbPodcastTitle.Text = "";
+				tbPodcastURL.Text = "";
+			}
 		}
 
 		private void btnNewCategory_Click(object sender, EventArgs e) {
@@ -57,9 +61,10 @@ namespace RSSreader {
 			tbCategory.Text = "";
 		}
 		private void btnRemoveCategory_Click(object sender, EventArgs e) {
-			ListHandler.RemoveCategory(tbCategory.Text.ToString());
-			FillCatogoryListBox();
-			tbCategory.Text = "";
+			if (ListHandler.RemoveCategory(tbCategory.Text.ToString())) { 
+				FillCatogoryListBox();
+				tbCategory.Text = "";
+			}
 		}
 		private void btnSaveCategory_Click(object sender, EventArgs e) {
 			if(ListHandler.UpdateCategory(lbCategory.SelectedItem.ToString(), tbCategory.Text.ToString())) {
@@ -80,9 +85,9 @@ namespace RSSreader {
 		}
 		public void FillIntervalCheckbox() {
 			cbPodcastInterval.Items.Clear();
-			var intervalLIst = Interval.PossibleIntervals();
-			if (intervalLIst.Any()) {
-				foreach (var c in intervalLIst) {
+			var intervalList = Interval.PossibleIntervals();
+			if (intervalList.Any()) {
+				foreach (var c in intervalList) {
 					cbPodcastInterval.Items.Add(c);
 				}
 			}

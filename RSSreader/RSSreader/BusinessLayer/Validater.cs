@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RSSreader.BusinessLayer
 {
-    class Validater
+    class Validater	
     {
 		public static bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
@@ -19,14 +19,11 @@ namespace RSSreader.BusinessLayer
 				}
 			}
 		}
-        public static bool NotEmpty(string input) 
-        {
-            if(!(string.IsNullOrEmpty(input)))
-            {
+        public static bool NotEmpty(string input){
+            if(!(string.IsNullOrEmpty(input))){
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
 		}
@@ -54,22 +51,29 @@ namespace RSSreader.BusinessLayer
 			};
 			return doesExist;
 		}
-        public static bool CheckUrlExists(List<Podcast> podcasts, string newUrl)
-        {
+        public static bool CheckUrlExists(List<Podcast> podcasts, string newUrl){
             bool doesExist = false;
-            foreach(var p in podcasts)
-            {
-                if(p.URL == newUrl)
-                {
+            foreach(var p in podcasts){
+                if(p.URL == newUrl){
                     Dialog.NotURL();
                     doesExist = true;
                 }
-                else
-                {
+                else{
                     doesExist = false;
                 }
             };
             return doesExist;
         }
+		public static bool CheckIfCategoryUsed(string categoryTitle) {
+			bool isInUse = false;
+			var podcastList = ListHandler.SortPodcastList();
+			foreach(var c in podcastList) {
+				if(c.Category == categoryTitle) {
+					isInUse = true;
+					break;
+				}
+			}
+			return isInUse;
+		}
 	}
 }

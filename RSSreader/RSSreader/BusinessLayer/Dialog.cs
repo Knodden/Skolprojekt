@@ -44,5 +44,9 @@ namespace RSSreader.BusinessLayer {
 		internal static void NotURL() {
 			MessageBox.Show("Not an valid URL. Please try again");
 		}
+
+		internal static void CategoryUsed() {
+			MessageBox.Show("This category is in use. Please try again.");
+		}
 	}
 }
