@@ -7,7 +7,7 @@ namespace RSSreader.BusinessLayer {
 	class ListHandler {
 		private static List<Podcast> listOfPodcast = new List<Podcast>();
 		private static List<Category> listOfCategory = new List<Category>();
-		private static FileHandler Files = new FileHandler();
+		//private static FileHandler Files = new FileHandler();
 
 		public static List<Category> ListCategory() { 
 			return listOfCategory;
@@ -129,13 +129,13 @@ namespace RSSreader.BusinessLayer {
 			}
 			return postcastRemoved;
 		}
-		internal static void LoadXML() {
-			listOfCategory = Files.LoadCategories();
-			listOfPodcast = Files.LoadPodcasts();
-		}
-		internal static void SaveToXML() {
-			Files.SaveCategories(listOfCategory);
-			Files.SavePodcasts(listOfPodcast);
-		}
+		//internal static void LoadXML() {
+		//	listOfCategory = Files.LoadCategories();
+		//	listOfPodcast = Files.LoadPodcasts();
+		//}
+		//internal static void SaveToXML() {
+		//	Files.SaveCategories(listOfCategory);
+		//	Files.SavePodcasts(listOfPodcast);
+		//}
 	}
 }
