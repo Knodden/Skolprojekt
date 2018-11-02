@@ -129,13 +129,5 @@ namespace RSSreader.BusinessLayer {
 			}
 			return postcastRemoved;
 		}
-		//internal static void LoadXML() {
-		//	listOfCategory = Files.LoadCategories();
-		//	listOfPodcast = Files.LoadPodcasts();
-		//}
-		//internal static void SaveToXML() {
-		//	Files.SaveCategories(listOfCategory);
-		//	Files.SavePodcasts(listOfPodcast);
-		//}
 	}
 }
