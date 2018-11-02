@@ -89,9 +89,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="DataAcessLayer\XMLfiles\podcast.xml" />
+    <Folder Include="DataAcessLayer\XMLfiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

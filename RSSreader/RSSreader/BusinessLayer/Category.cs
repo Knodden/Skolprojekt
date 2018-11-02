@@ -10,5 +10,9 @@ namespace RSSreader.BusinessLayer {
 		public Category(string categoryTitle) {
 			Title = categoryTitle;
 		}
+        public Category()
+        {
+
+        }
 	}
 }

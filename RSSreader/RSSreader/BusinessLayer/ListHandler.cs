@@ -7,9 +7,13 @@ namespace RSSreader.BusinessLayer {
 	class ListHandler {
 		private static List<Podcast> listOfPodcast = new List<Podcast>();
 		private static List<Category> listOfCategory = new List<Category>();
-		//private static FileHandler Files = new FileHandler();
-
-		public static List<Category> ListCategory() { 
+       
+        public static void LoadData()
+        {
+            listOfCategory = new FileHandler().LoadCategories();
+            listOfPodcast = new FileHandler().LoadPodcasts();
+        }
+        public static List<Category> ListCategory() { 
 			return listOfCategory;
 		}
 		public static void AddCategory(string newCategory) {
@@ -21,8 +25,8 @@ namespace RSSreader.BusinessLayer {
 					Category createCat = new Category(newCategory);
 					listOfCategory.Add(createCat);
 					Dialog.CategoryAdded();
-                   // new FileHandler().SaveCategories(listOfCategory);
-				}
+                    new FileHandler().SaveCategories(listOfCategory);
+                }
 			}
 			else {
 				Dialog.EmptyInput();
@@ -40,8 +44,8 @@ namespace RSSreader.BusinessLayer {
 						updateCat.Title = newCategory;
 						Dialog.CategoryUpdated();
 						isCategoryUpdated = true;
-                        // new FileHandler().SaveCategories(listOfCategory);
-					}
+                        new FileHandler().SaveCategories(listOfCategory);
+                    }
 				}
 				else {
 					Dialog.NoChange();
@@ -67,8 +71,8 @@ namespace RSSreader.BusinessLayer {
 				if (updatePodcast) {
 					ListHandler.RemovePodcast(oldPodcast.Title);
 					ListHandler.AddPodcast(newPodcast.URL, newPodcast.Title, newPodcast.UpdateInterval.ToString(), newPodcast.Category);
-				´	Dialog.PodcastUpdated();
-				}
+					Dialog.PodcastUpdated();
+                }
 			}
 			return isPodcastUpdate;
 		}
@@ -93,8 +97,8 @@ namespace RSSreader.BusinessLayer {
 						}
 					}
 				}
-                //new FileHandler().SaveCategories(listOfCategory);
-			}
+                new FileHandler().SaveCategories(listOfCategory);
+            }
 			return catDeleted;
 		}
 		/* ---------------- */
@@ -115,8 +119,8 @@ namespace RSSreader.BusinessLayer {
 						listOfPodcast.Add(createPodcast);
 						Dialog.PodcastAdded();
 						podcastAdded = true;
-                       // new FileHandler().SavePodcasts(listOfPodcast);
-					}
+                        new FileHandler().SavePodcasts(listOfPodcast);
+                    }
 				}
 				else {
 					Dialog.NotURL();
@@ -144,8 +148,8 @@ namespace RSSreader.BusinessLayer {
 						listOfPodcast.Remove(c);
 						postcastRemoved = true;
 						Dialog.PodcastRemoved();
-						// new FileHandler().SavePodcasts(listOfPodcast);
-						break;
+                        new FileHandler().SavePodcasts(listOfPodcast);
+                        break;
 					}
                 }	
 			}
