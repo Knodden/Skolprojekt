@@ -37,8 +37,8 @@ namespace RSSreader {
 			}
 		}
 		private void btnNewPodcast_Click(object sender, EventArgs e) {
-			string podcastURL = tbPodcastURL.Text.ToString();
-			string podcastTitle = tbPodcastTitle.Text.ToString();
+			string podcastURL = tbPodcastURL.Text;
+			string podcastTitle = tbPodcastTitle.Text;
 			var podcastInterval = cbPodcastInterval.SelectedItem.ToString();
 			var podcastCategory = cbPodcastCategory.SelectedItem.ToString();
 			if (ListHandler.AddPodcast(podcastURL, podcastTitle, podcastInterval, podcastCategory.ToString())) {
@@ -51,13 +51,14 @@ namespace RSSreader {
 		}
 		private void btnSavePodcast_Click(object sender, EventArgs e) {
 			var oldPodcast = ListHandler.FetchPodcast(lvPodcasts.SelectedItems[0].Text);
-			var newPodcast = new Podcast(
-				tbPodcastTitle.Text, 
-				tbPodcastURL.Text, 
-				int.Parse(cbPodcastInterval.SelectedText), 
-				cbPodcastCategory.SelectedText);
+            var newPodcast = new Podcast(
+                tbPodcastURL.Text,
+                tbPodcastTitle.Text,
+                int.Parse(cbPodcastInterval.SelectedItem.ToString()),
+                cbPodcastCategory.SelectedItem.ToString());
 			ListHandler.UpdatePodcast(oldPodcast, newPodcast);
-		}
+            FillPodcastListBox();
+        }
 
 		private void btnRemovePodcast_Click(object sender, EventArgs e) {
 			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems[0].Text)) {
@@ -132,8 +133,8 @@ namespace RSSreader {
 				foreach (var p in podcastList) {
 					ListViewItem podcast = new ListViewItem();
 					podcast.Text = p.Title;
-					podcast.SubItems.Add(p.Episodes.ToString());
-					podcast.SubItems.Add("5");
+					podcast.SubItems.Add(p.Episodes.Count.ToString());
+					podcast.SubItems.Add(p.UpdateInterval.ToString());
 					podcast.SubItems.Add(p.Category);
 					lvPodcasts.Items.Add(podcast);
 				}
@@ -141,7 +142,7 @@ namespace RSSreader {
 		}
 
 		private void lvPodcasts_SelectedIndexChanged(object sender, EventArgs e) {
-			if (lvPodcasts.SelectedItems == null) {
+			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0) {
 				return;
 			}
 			else {

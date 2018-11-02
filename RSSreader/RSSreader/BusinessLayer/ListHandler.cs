@@ -24,7 +24,7 @@ namespace RSSreader.BusinessLayer {
 				else {
 					Category createCat = new Category(newCategory);
 					listOfCategory.Add(createCat);
-					Dialog.CategoryAdded();
+					//Dialog.CategoryAdded();
                     new FileHandler().SaveCategories(listOfCategory);
                 }
 			}
@@ -42,7 +42,7 @@ namespace RSSreader.BusinessLayer {
 					else {
 						var updateCat = listOfCategory.FirstOrDefault((nv) => nv.Title == oldCategory);
 						updateCat.Title = newCategory;
-						Dialog.CategoryUpdated();
+						//Dialog.CategoryUpdated();
 						isCategoryUpdated = true;
                         new FileHandler().SaveCategories(listOfCategory);
                     }
@@ -60,7 +60,7 @@ namespace RSSreader.BusinessLayer {
 		internal static bool UpdatePodcast(Podcast oldPodcast, Podcast newPodcast) {
 			bool isPodcastUpdate = false;
 			if(Validater.CheckIfPodcastChanged(oldPodcast, newPodcast)){
-				bool updatePodcast = false;
+				bool updatePodcast = true;
 				foreach(var p in listOfPodcast) {
 					if((p.Title == newPodcast.Title) && !(oldPodcast.Title == newPodcast.Title)){
 						Dialog.PodcastExist();
@@ -71,7 +71,7 @@ namespace RSSreader.BusinessLayer {
 				if (updatePodcast) {
 					ListHandler.RemovePodcast(oldPodcast.Title);
 					ListHandler.AddPodcast(newPodcast.URL, newPodcast.Title, newPodcast.UpdateInterval.ToString(), newPodcast.Category);
-					Dialog.PodcastUpdated();
+					//Dialog.PodcastUpdated();
                 }
 			}
 			return isPodcastUpdate;
@@ -92,7 +92,7 @@ namespace RSSreader.BusinessLayer {
 						else {
 							listOfCategory.Remove(c);
 							catDeleted = true;
-							Dialog.CategoryRemoved();
+							//Dialog.CategoryRemoved();
                             break;
 						}
 					}
@@ -117,7 +117,7 @@ namespace RSSreader.BusinessLayer {
 						int nPodcastIntervalInt = int.Parse(nPodcastInterval);
 						Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
 						listOfPodcast.Add(createPodcast);
-						Dialog.PodcastAdded();
+						//Dialog.PodcastAdded();
 						podcastAdded = true;
                         new FileHandler().SavePodcasts(listOfPodcast);
                     }
@@ -147,7 +147,7 @@ namespace RSSreader.BusinessLayer {
 					if (c.Title == podcastRemove) {
 						listOfPodcast.Remove(c);
 						postcastRemoved = true;
-						Dialog.PodcastRemoved();
+						//Dialog.PodcastRemoved();
                         new FileHandler().SavePodcasts(listOfPodcast);
                         break;
 					}
