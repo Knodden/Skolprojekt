@@ -21,7 +21,7 @@ namespace RSSreader.BusinessLayer {
 					Category createCat = new Category(newCategory);
 					listOfCategory.Add(createCat);
 					Dialog.CategoryAdded();
-                    new FileHandler().SaveCategories(listOfCategory);
+                   // new FileHandler().SaveCategories(listOfCategory);
 				}
 			}
 			else {
@@ -40,7 +40,7 @@ namespace RSSreader.BusinessLayer {
 						updateCat.Title = newCategory;
 						Dialog.CategoryUpdated();
 						isCategoryUpdated = true;
-                        new FileHandler().SaveCategories(listOfCategory);
+                        // new FileHandler().SaveCategories(listOfCategory);
 					}
 				}
 				else {
@@ -52,12 +52,33 @@ namespace RSSreader.BusinessLayer {
 			}
 			return isCategoryUpdated;
 		}
+
+		internal static bool UpdatePodcast(Podcast oldPodcast, Podcast newPodcast) {
+			bool isPodcastUpdate = false;
+			if(Validater.CheckIfPodcastChanged(oldPodcast, newPodcast)){
+				bool updatePodcast = false;
+				foreach(var p in listOfPodcast) {
+					if((p.Title == newPodcast.Title) && !(oldPodcast.Title == newPodcast.Title)){
+						Dialog.PodcastExist();
+						updatePodcast = false;
+						break;
+					}
+				}
+				if (updatePodcast) {
+					ListHandler.RemovePodcast(oldPodcast.Title);
+					ListHandler.AddPodcast(newPodcast.URL, newPodcast.Title, newPodcast.UpdateInterval.ToString(), newPodcast.Category);
+				´	Dialog.PodcastUpdated();
+				}
+			}
+			return isPodcastUpdate;
+		}
+
 		public static List<Category> SortCategoryList(List<Category> listToSort) {
 			var newList = listToSort.OrderBy((a) => a.Title).ToList();
 			return newList;
 		}
 		internal static bool RemoveCategory(string categoryRemove) {
-			bool doesExist = false;
+			bool catDeleted = false;
 			if (Validater.NotEmpty(categoryRemove)) {
 				foreach (var c in listOfCategory) {
 					if (c.Title == categoryRemove) {
@@ -66,28 +87,26 @@ namespace RSSreader.BusinessLayer {
 						}
 						else {
 							listOfCategory.Remove(c);
-							doesExist = true;
+							catDeleted = true;
 							Dialog.CategoryRemoved();
                             break;
 						}
 					}
 				}
-                new FileHandler().SaveCategories(listOfCategory);
-                if (!doesExist) {
-					Dialog.CatogeryNotExist();
-				}
+                //new FileHandler().SaveCategories(listOfCategory);
 			}
-			return doesExist;
+			return catDeleted;
 		}
 		/* ---------------- */
 		public static List<Podcast> ListPodcast() {
 			return listOfPodcast;
 		}
-		public static void AddPodcast
+		public static bool AddPodcast
 			(string nPodcastURL, string nPodcastTitle, string nPodcastInterval, string nPodcastCategory) {
+			bool podcastAdded = false;
 			if ((Validater.NotEmpty(nPodcastURL)) && (Validater.NotEmpty(nPodcastTitle)) && (Validater.NotEmpty(nPodcastInterval)) &&(Validater.NotEmpty(nPodcastCategory))) {
 				if ((Validater.IsURL(nPodcastURL))) {
-					if (Validater.CheckPodcastExist(listOfPodcast, nPodcastURL)) {
+					if (Validater.CheckPodcastExist(listOfPodcast, nPodcastURL, nPodcastTitle)) {
 						Dialog.PodcastExist();
 					}
 					else {
@@ -95,7 +114,8 @@ namespace RSSreader.BusinessLayer {
 						Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
 						listOfPodcast.Add(createPodcast);
 						Dialog.PodcastAdded();
-                        new FileHandler().SavePodcasts(listOfPodcast);
+						podcastAdded = true;
+                       // new FileHandler().SavePodcasts(listOfPodcast);
 					}
 				}
 				else {
@@ -105,6 +125,7 @@ namespace RSSreader.BusinessLayer {
 			else {
 				Dialog.EmptyInput();
 			}
+			return podcastAdded;
 		}
 		internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle) {
 			bool isPodcastUpdated = false;
@@ -122,12 +143,21 @@ namespace RSSreader.BusinessLayer {
 					if (c.Title == podcastRemove) {
 						listOfPodcast.Remove(c);
 						postcastRemoved = true;
+						Dialog.PodcastRemoved();
+						// new FileHandler().SavePodcasts(listOfPodcast);
 						break;
 					}
-                    new FileHandler().SavePodcasts(listOfPodcast);
                 }	
 			}
 			return postcastRemoved;
+		}
+		internal static Podcast FetchPodcast(string podcastTitle ) {
+			foreach (var p in listOfPodcast) {
+				if(p.Title == podcastTitle) {
+					return p;
+				}
+			}
+			return null;
 		}
 	}
 }

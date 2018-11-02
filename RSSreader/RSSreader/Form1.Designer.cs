@@ -64,8 +64,8 @@
 			// lvPodcasts
 			// 
 			this.lvPodcasts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chEpisodes,
             this.chTitle,
+            this.chEpisodes,
             this.chInterval,
             this.chCategory});
 			this.lvPodcasts.Location = new System.Drawing.Point(15, 30);
@@ -76,6 +76,7 @@
 			this.lvPodcasts.UseCompatibleStateImageBehavior = false;
 			this.lvPodcasts.UseWaitCursor = true;
 			this.lvPodcasts.View = System.Windows.Forms.View.Details;
+			this.lvPodcasts.SelectedIndexChanged += new System.EventHandler(this.lvPodcasts_SelectedIndexChanged);
 			// 
 			// chEpisodes
 			// 
@@ -226,6 +227,7 @@
 			// 
 			// btnSaveCategory
 			// 
+			this.btnSaveCategory.Enabled = false;
 			this.btnSaveCategory.Location = new System.Drawing.Point(763, 196);
 			this.btnSaveCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSaveCategory.Name = "btnSaveCategory";
@@ -296,6 +298,7 @@
 			// 
 			// btnRemoveCategory
 			// 
+			this.btnRemoveCategory.Enabled = false;
 			this.btnRemoveCategory.Location = new System.Drawing.Point(635, 222);
 			this.btnRemoveCategory.Name = "btnRemoveCategory";
 			this.btnRemoveCategory.Size = new System.Drawing.Size(248, 23);

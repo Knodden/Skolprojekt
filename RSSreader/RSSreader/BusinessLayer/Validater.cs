@@ -39,10 +39,10 @@ namespace RSSreader.BusinessLayer
 			};
 			return doesExist;
 		}
-		internal static bool CheckPodcastExist(List<Podcast> podcast, string podcastURL) {
+		internal static bool CheckPodcastExist(List<Podcast> podcast, string podcastURL, string podcastTitle) {
 			bool doesExist = false;
 			foreach (var c in podcast) {
-				if (c.URL == podcastURL) {
+				if ((c.URL == podcastURL) || (c.Title == podcastTitle)) {
 					doesExist = true;
 				}
 				else {
@@ -74,6 +74,20 @@ namespace RSSreader.BusinessLayer
 				}
 			}
 			return isInUse;
+		}
+		internal static bool CheckIfPodcastChanged(Podcast podcast1, Podcast podcast2) {
+			bool isPodcastChanged = false;
+			if (
+				(podcast1.Title == podcast2.Title) &&
+				(podcast1.URL == podcast2.URL) &&
+				(podcast1.UpdateInterval == podcast2.UpdateInterval) &&
+				(podcast1.Category == podcast2.Category)) {
+				isPodcastChanged = false;
+			}
+			else {
+				isPodcastChanged = true;
+			}
+			return isPodcastChanged;
 		}
 	}
 }

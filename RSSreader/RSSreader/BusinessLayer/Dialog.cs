@@ -48,5 +48,13 @@ namespace RSSreader.BusinessLayer {
 		internal static void CategoryUsed() {
 			MessageBox.Show("This category is in use. Please try again.");
 		}
+
+		internal static void PodcastRemoved() {
+			MessageBox.Show("Podcast removed.");
+		}
+
+		internal static void PodcastUpdated() {
+			MessageBox.Show("Podcast updated");
+		}
 	}
 }
