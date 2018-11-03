@@ -25,10 +25,10 @@ namespace RSSreader.BusinessLayer
         {
             Episodes = new List<Episode>();
         }
-        public List<Episode> ListEpisodes()
-        {
-            return Episodes;
-        }
+        //public List<Episode> ListEpisodes()
+        //{
+        //    return Episodes;
+        //}
 
     }
 }
