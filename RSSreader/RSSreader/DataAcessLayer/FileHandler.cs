@@ -10,9 +10,16 @@ using RSSreader.BusinessLayer;
 
 namespace RSSreader.DataAcessLayer
 {
-    class FileHandler
+
+    interface CreateDirectory
     {
-        public string CreateCatDirectory ()
+        CreateCatDirectory();
+        CreatePodDirectory();
+    }
+
+    class FileHandler : CreateDirectory
+    {
+        public string CreateCatDirectory()
         {
             var dir = @".\RSSreader\RSSreader\DataAcessLayer\XMLFiles\"; 
             var filePath1 = dir + "\\Category.xml";
@@ -85,4 +92,3 @@ namespace RSSreader.DataAcessLayer
         }
     }
 }
-//var dir = @"C:\Users\Dator\source\repos\Skolprojekt\RSSreader\RSSreader\DataAcessLayer\XMLFiles\";
