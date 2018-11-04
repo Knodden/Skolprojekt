@@ -11,13 +11,13 @@ using RSSreader.BusinessLayer;
 namespace RSSreader.DataAcessLayer
 {
 
-    interface CreateDirectory
+    interface ICreateDirectory
     {
         string CreateCatDirectory();
         string CreatePodDirectory();
     }
 
-    class FileHandler : CreateDirectory
+    class FileHandler : ICreateDirectory
     {
         public string CreateCatDirectory()
         {
