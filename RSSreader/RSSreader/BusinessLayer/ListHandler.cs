@@ -157,7 +157,7 @@ namespace RSSreader.BusinessLayer {
 					if (c.Title == podcastRemove) {
 						listOfPodcast.Remove(c);
 						postcastRemoved = true;
-						//Dialog.PodcastRemoved();
+						Dialog.PodcastRemoved();
                         new FileHandler().SavePodcasts(listOfPodcast);
                         break;
 					}
