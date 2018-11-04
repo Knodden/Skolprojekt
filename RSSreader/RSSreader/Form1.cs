@@ -12,6 +12,7 @@ using RSSreader.BusinessLayer;
 
 namespace RSSreader {
 	public partial class Form1 : Form {
+        int updateCounter = 0;
 		public Form1() {
 			InitializeComponent();
 		}
@@ -212,6 +213,15 @@ namespace RSSreader {
                 episode.SubItems.Add(e.PubDate.ToString());
                 lvEpisodes.Items.Add(episode);
             }
+        }
+
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            var all = ListHandler.ListPodcast();
+            var toUpdate = all.Where(a => updateCounter % a.UpdateInterval == 0).ToList();
+            updateCounter++;
+            await new FetchFeed().FetchFeeds(toUpdate);
+            ListHandler.SaveData();
         }
     }
 }

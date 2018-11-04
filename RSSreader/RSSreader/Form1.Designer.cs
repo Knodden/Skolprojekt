@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.lbPodcastRubrik = new System.Windows.Forms.Label();
             this.lvPodcasts = new System.Windows.Forms.ListView();
             this.chTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,6 +53,7 @@
             this.lbEpisodeDescription = new System.Windows.Forms.Label();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lbPodcastRubrik
@@ -279,7 +281,7 @@
             this.lvEpisodes.Location = new System.Drawing.Point(12, 249);
             this.lvEpisodes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvEpisodes.Name = "lvEpisodes";
-            this.lvEpisodes.Size = new System.Drawing.Size(223, 92);
+            this.lvEpisodes.Size = new System.Drawing.Size(294, 106);
             this.lvEpisodes.TabIndex = 20;
             this.lvEpisodes.UseCompatibleStateImageBehavior = false;
             this.lvEpisodes.View = System.Windows.Forms.View.Details;
@@ -332,6 +334,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "PubDate";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -401,6 +409,7 @@
         private System.Windows.Forms.Label lbEpisodeDescription;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
