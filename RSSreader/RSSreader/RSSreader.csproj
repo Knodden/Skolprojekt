@@ -53,6 +53,7 @@
     <Compile Include="BusinessLayer\Category.cs" />
     <Compile Include="BusinessLayer\ListHandler.cs" />
     <Compile Include="BusinessLayer\Podcast.cs" />
+    <Compile Include="BusinessLayer\FetchFeed.cs" />
     <Compile Include="BusinessLayer\Validater.cs" />
     <Compile Include="DataAcessLayer\FileHandler.cs" />
     <Compile Include="DataAcessLayer\XML.cs" />

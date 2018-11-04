@@ -140,6 +140,16 @@ namespace RSSreader.BusinessLayer {
 			var newList = listOfPodcast.OrderBy((a) => a.Title).ToList();
 			return newList;
 		}
+        public static List<Podcast> SortByCategory(string updateCategoryTitle)
+        {
+            var newList = listOfPodcast.Where(p => p.Category == updateCategoryTitle).OrderBy(p => p.Title).ToList();
+            return newList;
+        }
+        //public static List<Episode> ShowEpisodes()
+        //{
+        //    var newList = 
+        //    return newList;
+        //}
 		internal static bool RemovePodcast(string podcastRemove) {
 			bool postcastRemoved = false;
 			if (Validater.NotEmpty(podcastRemove)) {
