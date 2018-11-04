@@ -13,8 +13,8 @@ namespace RSSreader.DataAcessLayer
 
     interface CreateDirectory
     {
-        CreateCatDirectory();
-        CreatePodDirectory();
+        //CreateCatDirectory();
+        //CreatePodDirectory();
     }
 
     class FileHandler : CreateDirectory
