@@ -49,11 +49,11 @@
             this.lvEpisodes = new System.Windows.Forms.ListView();
             this.lbEpisodeAmount = new System.Windows.Forms.Label();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
-            this.lvDescription = new System.Windows.Forms.ListView();
             this.lbEpisodeDescription = new System.Windows.Forms.Label();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lvDescription = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lbPodcastRubrik
@@ -309,14 +309,6 @@
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
             this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
-            // lvDescription
-            // 
-            this.lvDescription.Location = new System.Drawing.Point(343, 249);
-            this.lvDescription.Name = "lvDescription";
-            this.lvDescription.Size = new System.Drawing.Size(320, 92);
-            this.lvDescription.TabIndex = 23;
-            this.lvDescription.UseCompatibleStateImageBehavior = false;
-            // 
             // lbEpisodeDescription
             // 
             this.lbEpisodeDescription.AutoSize = true;
@@ -330,6 +322,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Title";
+            this.columnHeader1.Width = 79;
             // 
             // columnHeader2
             // 
@@ -338,16 +331,24 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 2000;
+            this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lvDescription
+            // 
+            this.lvDescription.Location = new System.Drawing.Point(340, 247);
+            this.lvDescription.Name = "lvDescription";
+            this.lvDescription.Size = new System.Drawing.Size(322, 107);
+            this.lvDescription.TabIndex = 25;
+            this.lvDescription.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 366);
-            this.Controls.Add(this.lbEpisodeDescription);
             this.Controls.Add(this.lvDescription);
+            this.Controls.Add(this.lbEpisodeDescription);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.lbEpisodeAmount);
             this.Controls.Add(this.lvEpisodes);
@@ -405,11 +406,11 @@
 		private System.Windows.Forms.Label lbEpisodeAmount;
 		private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.ColumnHeader chEpisodes;
-        private System.Windows.Forms.ListView lvDescription;
         private System.Windows.Forms.Label lbEpisodeDescription;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ListView lvDescription;
     }
 }
 
