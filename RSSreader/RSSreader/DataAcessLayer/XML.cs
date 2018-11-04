@@ -38,14 +38,26 @@ namespace RSSreader.DataAcessLayer
             var conv = (List<Podcast>)data;
             return conv;
         }
-        //public List<Episode> XmlToEpisode(String content)
-        //{
-        //    XmlSerializer serializer = new XmlSerializer(typeof(List<Episode>));
-        //    using(StringReader reader = new StringReader(content))
-        //    {
-        //        List<Episode> ep = (List<Episode>)(serializer.Deserialize(reader));
-        //        return ep;
-        //    }
-        //}
+        public List<Episode> XmlToEpisode(String content)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(rss));
+            using (StringReader reader = new StringReader(content))
+            {
+                var root = (rss)(serializer.Deserialize(reader));
+
+                return root.channel.Items;
+            }
+        }
+    }
+
+    public class rss
+    {
+        public channel channel { get; set; }
+    }
+
+    public class channel
+    {
+        [XmlElement("item")]
+        public List<Episode> Items { get; set; }
     }
 }

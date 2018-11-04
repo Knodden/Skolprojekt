@@ -11,15 +11,18 @@ namespace RSSreader.BusinessLayer
     class FetchFeed
     {
         private HttpClient Client = new HttpClient();
-        private async Task FetchFeeds(string[] feeds)
+        public async Task FetchFeeds(List<Podcast> podcasts)
         {
-            foreach(var f in feeds)
+            foreach(var p in podcasts)
             {
-                var content = await Client.GetStringAsync(f);
+                var url = p.URL;
+                var content = await Client.GetStringAsync(url);
                 //Anropa en metod
-                //var episodeList = new XML().XmlToEpisode(content);
-                ////Anropa en annan metod
+                var episodeList = new XML().XmlToEpisode(content);
+                p.Episodes = episodeList;
+                //Anropa en annan metod
             }
+
         }
     }
 }

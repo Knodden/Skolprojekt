@@ -15,7 +15,7 @@ namespace RSSreader {
 		public Form1() {
 			InitializeComponent();
 		}
-		private void Form1_Load(object sender, EventArgs e) {
+		private async void Form1_Load(object sender, EventArgs e) {
             // Det som sker när programmet startar.
             // Ladda in XML från Podcast och Kategori och fyll listorna.
             ListHandler.LoadData();
@@ -23,6 +23,8 @@ namespace RSSreader {
 			FillCatogoryListBox();
 			FillCategoryCheckbox();
 			FillIntervalCheckbox();
+
+            await new FetchFeed().FetchFeeds(ListHandler.ListPodcast());
 		}
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
 			if(lbCategory.SelectedItem == null){
@@ -207,7 +209,7 @@ namespace RSSreader {
             {
                 ListViewItem episode = new ListViewItem();
                 episode.Text = e.Title;
-                episode.SubItems.Add(e.PubDate);
+                episode.SubItems.Add(e.PubDate.ToString());
                 lvEpisodes.Items.Add(episode);
             }
         }
