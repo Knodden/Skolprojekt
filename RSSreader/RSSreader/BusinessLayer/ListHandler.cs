@@ -142,7 +142,7 @@ namespace RSSreader.BusinessLayer {
 		}
         public static List<Podcast> SortByCategory(string updateCategoryTitle)
         {
-            var newList = listOfPodcast.Where(p => p.Category == updateCategoryTitle).OrderBy(p => p.Title).ToList();
+            var newList = listOfPodcast.Where(p => p.Category.Contains(updateCategoryTitle)).OrderBy(p => p.Title).ToList();
             return newList;
         }
         //public static List<Episode> ShowEpisodes()

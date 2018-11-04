@@ -15,7 +15,6 @@ namespace RSSreader {
 		public Form1() {
 			InitializeComponent();
 		}
-
 		private void Form1_Load(object sender, EventArgs e) {
             // Det som sker när programmet startar.
             // Ladda in XML från Podcast och Kategori och fyll listorna.
@@ -63,7 +62,6 @@ namespace RSSreader {
 			ListHandler.UpdatePodcast(oldPodcast, newPodcast);
             FillPodcastListBox();
         }
-
 		private void btnRemovePodcast_Click(object sender, EventArgs e) {
 			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems[0].Text)) {
 				FillPodcastListBox();
@@ -88,9 +86,6 @@ namespace RSSreader {
 			if(ListHandler.UpdateCategory(lbCategory.SelectedItem.ToString(), tbCategory.Text.ToString())) {
 				FillCatogoryListBox();
 			}
-		}
-		private void tbURL_TextChanged(object sender, EventArgs e) {
-
 		}
 		public void FillCatogoryListBox() {
 			lbCategory.Items.Clear();
@@ -155,7 +150,6 @@ namespace RSSreader {
 				// Kod för att uppdatera en podcast.
 			}
 		}
-
         public void ShowPodcastByCategory(string updateCategoryTitle)
         {
             lvPodcasts.Items.Clear();
@@ -181,10 +175,19 @@ namespace RSSreader {
 			btnRemovePodcast.Enabled = showButton;
 			btnSavePodcast.Enabled = showButton;
 		}
-        //public void FillvEpisodes()
-        //{
-        //    lvEpisodes.Items.Clear();
-        //    var episodeList = ListHandler.
-        //}
+		private void tbCategory_TextChanged(object sender, EventArgs e) {
+			ShowPodcastByCategory(tbCategory.Text.ToString());
+			if (!(string.IsNullOrEmpty(tbCategory.Text))) { 
+				lbPodcastRubrik.Text = "Podcasts (Category: " + tbCategory.Text.ToString() + ")";
+			}
+			else {
+				lbPodcastRubrik.Text = "Podcasts";
+			}
+		}
+		//public void FillvEpisodes()
+		//{
+		//    lvEpisodes.Items.Clear();
+		//    var episodeList = ListHandler.
+		//}
 	}
 }

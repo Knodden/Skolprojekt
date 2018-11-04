@@ -138,7 +138,6 @@
 			this.tbPodcastURL.Name = "tbPodcastURL";
 			this.tbPodcastURL.Size = new System.Drawing.Size(151, 22);
 			this.tbPodcastURL.TabIndex = 6;
-			this.tbPodcastURL.TextChanged += new System.EventHandler(this.tbURL_TextChanged);
 			// 
 			// lbPodcastTitle
 			// 
@@ -203,6 +202,7 @@
 			this.tbCategory.Name = "tbCategory";
 			this.tbCategory.Size = new System.Drawing.Size(248, 22);
 			this.tbCategory.TabIndex = 13;
+			this.tbCategory.TextChanged += new System.EventHandler(this.tbCategory_TextChanged);
 			// 
 			// btnNewCategory
 			// 
@@ -297,7 +297,7 @@
 			// lvDescription
 			// 
 			this.lvDescription.Location = new System.Drawing.Point(457, 306);
-			this.lvDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.lvDescription.Margin = new System.Windows.Forms.Padding(4);
 			this.lvDescription.Name = "lvDescription";
 			this.lvDescription.Size = new System.Drawing.Size(425, 112);
 			this.lvDescription.TabIndex = 23;
