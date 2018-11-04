@@ -206,6 +206,7 @@
 			// 
 			// btnNewCategory
 			// 
+			this.btnNewCategory.Enabled = false;
 			this.btnNewCategory.Location = new System.Drawing.Point(635, 196);
 			this.btnNewCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNewCategory.Name = "btnNewCategory";

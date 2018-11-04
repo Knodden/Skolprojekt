@@ -42,7 +42,7 @@ namespace RSSreader.BusinessLayer {
 					else {
 						var updateCat = listOfCategory.FirstOrDefault((nv) => nv.Title == oldCategory);
 						updateCat.Title = newCategory;
-						//Dialog.CategoryUpdated();
+						Dialog.CategoryUpdated();
 						isCategoryUpdated = true;
                         new FileHandler().SaveCategories(listOfCategory);
                     }
@@ -56,7 +56,6 @@ namespace RSSreader.BusinessLayer {
 			}
 			return isCategoryUpdated;
 		}
-
 		internal static bool UpdatePodcast(Podcast oldPodcast, Podcast newPodcast) {
 			bool isPodcastUpdate = false;
 			if(Validater.CheckIfPodcastChanged(oldPodcast, newPodcast)){
@@ -65,6 +64,7 @@ namespace RSSreader.BusinessLayer {
 					if((p.Title == newPodcast.Title) && !(oldPodcast.Title == newPodcast.Title)){
 						Dialog.PodcastExist();
 						updatePodcast = false;
+
 						break;
 					}
 				}

@@ -44,6 +44,8 @@ namespace RSSreader.BusinessLayer
 			foreach (var c in podcast) {
 				if ((c.URL == podcastURL) || (c.Title == podcastTitle)) {
 					doesExist = true;
+
+					break;
 				}
 				else {
 					doesExist = false;
