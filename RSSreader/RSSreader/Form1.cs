@@ -141,17 +141,23 @@ namespace RSSreader {
 			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0) {
 				return;
 			}
-			else {
-				string selectedPodcast = lvPodcasts.SelectedItems[0].Text;
-				var podcast = ListHandler.FetchPodcast(selectedPodcast);
-				tbPodcastTitle.Text = podcast.Title;
-				tbPodcastURL.Text = podcast.URL;
-				cbPodcastInterval.Text = podcast.UpdateInterval.ToString();
-				cbPodcastCategory.Text = podcast.Category.ToString();
-				PodcastButtons(true);
-				return;
-			}
-		}
+			else
+            {
+                string selectedPodcast = lvPodcasts.SelectedItems[0].Text;
+                var podcast = ListHandler.FetchPodcast(selectedPodcast);
+                tbPodcastTitle.Text = podcast.Title;
+                tbPodcastURL.Text = podcast.URL;
+                cbPodcastInterval.Text = podcast.UpdateInterval.ToString();
+                cbPodcastCategory.Text = podcast.Category.ToString();
+
+                FillVEpisodes(podcast);
+
+                PodcastButtons(true);
+                return;
+            }
+        }
+
+        
         public void ShowPodcastByCategory(string updateCategoryTitle)
         {
             lvPodcasts.Items.Clear();
@@ -192,10 +198,18 @@ namespace RSSreader {
 			btnRemovePodcast.Enabled = showButton;
 			btnSavePodcast.Enabled = showButton;
 		}
-		//public void FillvEpisodes()
-		//{
-		//    lvEpisodes.Items.Clear();
-		//    var episodeList = ListHandler.
-		//}
-	}
+        
+        private void FillVEpisodes(Podcast podcast)
+        {
+            lvEpisodes.Items.Clear();
+            var episodeList = podcast.Episodes;
+            foreach (var e in episodeList)
+            {
+                ListViewItem episode = new ListViewItem();
+                episode.Text = e.Title;
+                episode.SubItems.Add(e.PubDate);
+                lvEpisodes.Items.Add(episode);
+            }
+        }
+    }
 }
