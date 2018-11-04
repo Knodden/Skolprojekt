@@ -34,7 +34,9 @@ namespace RSSreader {
 				tbCategory.Text = updateCategoryTitle;
 				btnSaveCategory.Enabled = true;
 				btnRemoveCategory.Enabled = true;
-			}
+                ShowPodcastByCategory(updateCategoryTitle);
+
+            }
 		}
 		private void btnNewPodcast_Click(object sender, EventArgs e) {
 			string podcastURL = tbPodcastURL.Text;
@@ -156,5 +158,28 @@ namespace RSSreader {
 				// Kod för att uppdatera en podcast.
 			}
 		}
+
+        public void ShowPodcastByCategory(string updateCategoryTitle)
+        {
+            lvPodcasts.Items.Clear();
+            var podcastList = ListHandler.SortByCategory(updateCategoryTitle);
+            if (podcastList.Any())
+            {
+                foreach(var p in podcastList)
+                {
+                    ListViewItem podcast = new ListViewItem();
+                    podcast.Text = p.Title;
+                    podcast.SubItems.Add(p.Episodes.Count.ToString());
+                    podcast.SubItems.Add(p.UpdateInterval.ToString());
+                    podcast.SubItems.Add(p.Category);
+                    lvPodcasts.Items.Add(podcast);
+                }
+            }
+        }
+        //public void FillvEpisodes()
+        //{
+        //    lvEpisodes.Items.Clear();
+        //    var episodeList = ListHandler.
+        //}
 	}
 }
