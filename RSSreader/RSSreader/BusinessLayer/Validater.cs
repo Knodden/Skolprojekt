@@ -8,7 +8,7 @@ namespace RSSreader.BusinessLayer
 {
     class Validater	
     {
-		public static bool IsURL(string URL) {
+		internal static bool IsURL(string URL) {
 			// Kontrollera att string URL är en länk.
 			{
 				if(!(URL == "")){ //if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
@@ -19,7 +19,7 @@ namespace RSSreader.BusinessLayer
 				}
 			}
 		}
-        public static bool NotEmpty(string input){
+        internal static bool NotEmpty(string input){
             if(!(string.IsNullOrEmpty(input))){
                 return true;
             }
@@ -27,11 +27,12 @@ namespace RSSreader.BusinessLayer
                 return false;
             }
 		}
-		public static bool CheckCategoryExist(List<Category> categories, string newCategory) {
+		internal static bool CheckCategoryExist(List<Category> categories, string newCategory) {
 			bool doesExist = false;
 			foreach (var c in categories) {
 				if (c.Title == newCategory) {
 					doesExist = true;
+					break;
 				}
 				else {
 					doesExist = false;
@@ -44,7 +45,6 @@ namespace RSSreader.BusinessLayer
 			foreach (var c in podcast) {
 				if ((c.URL == podcastURL) || (c.Title == podcastTitle)) {
 					doesExist = true;
-
 					break;
 				}
 				else {
@@ -53,12 +53,13 @@ namespace RSSreader.BusinessLayer
 			};
 			return doesExist;
 		}
-        public static bool CheckUrlExists(List<Podcast> podcasts, string newUrl){
+        internal static bool CheckUrlExists(List<Podcast> podcasts, string newUrl){
             bool doesExist = false;
             foreach(var p in podcasts){
                 if(p.URL == newUrl){
                     Dialog.NotURL();
                     doesExist = true;
+					break;
                 }
                 else{
                     doesExist = false;
@@ -66,7 +67,7 @@ namespace RSSreader.BusinessLayer
             };
             return doesExist;
         }
-		public static bool CheckIfCategoryUsed(string categoryTitle) {
+		internal static bool CheckIfCategoryUsed(string categoryTitle) {
 			bool isInUse = false;
 			var podcastList = ListHandler.SortPodcastList();
 			foreach(var c in podcastList) {

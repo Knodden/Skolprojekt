@@ -35,7 +35,7 @@ namespace RSSreader.BusinessLayer
                 {
                     Category createCat = new Category(newCategory);
                     listOfCategory.Add(createCat);
-                    //Dialog.CategoryAdded();
+                    Dialog.CategoryAdded();
                     new FileHandler().SaveCategories(listOfCategory);
                 }
             }
@@ -87,7 +87,6 @@ namespace RSSreader.BusinessLayer
                     {
                         Dialog.PodcastExist();
                         updatePodcast = false;
-
                         break;
                     }
                 }
@@ -95,7 +94,8 @@ namespace RSSreader.BusinessLayer
                 {
                     ListHandler.RemovePodcast(oldPodcast.Title);
                     ListHandler.AddPodcast(newPodcast.URL, newPodcast.Title, newPodcast.UpdateInterval.ToString(), newPodcast.Category);
-                    //Dialog.PodcastUpdated();
+					isPodcastUpdate = true;
+					Dialog.PodcastUpdated();
                 }
             }
             return isPodcastUpdate;
@@ -132,7 +132,6 @@ namespace RSSreader.BusinessLayer
             }
             return catDeleted;
         }
-        /* ---------------- */
         public static List<Podcast> ListPodcast()
         {
             return listOfPodcast;
@@ -154,7 +153,7 @@ namespace RSSreader.BusinessLayer
                         int nPodcastIntervalInt = int.Parse(nPodcastInterval);
                         Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
                         listOfPodcast.Add(createPodcast);
-                        //Dialog.PodcastAdded();
+                        Dialog.PodcastAdded();
                         podcastAdded = true;
                         new FileHandler().SavePodcasts(listOfPodcast);
                     }
@@ -215,10 +214,10 @@ namespace RSSreader.BusinessLayer
             {
                 if (p.Title == podcastTitle)
                 {
-                    return p;
+					return p;
                 }
             }
-            return null;
+			return null;
         }
     }
 }

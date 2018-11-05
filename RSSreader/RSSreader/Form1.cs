@@ -65,8 +65,13 @@ namespace RSSreader {
                 tbPodcastTitle.Text,
                 int.Parse(cbPodcastInterval.SelectedItem.ToString()),
                 cbPodcastCategory.SelectedItem.ToString());
-			ListHandler.UpdatePodcast(oldPodcast, newPodcast);
-            FillPodcastListBox();
+			if(ListHandler.UpdatePodcast(oldPodcast, newPodcast)){
+				tbPodcastTitle.Text = "";
+				tbPodcastURL.Text = "";
+				cbPodcastInterval.SelectedIndex = 0;
+				cbPodcastCategory.SelectedIndex = 0;
+				FillPodcastListBox();
+			}	
         }
 		private void btnRemovePodcast_Click(object sender, EventArgs e) {
 			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems[0].Text)) {
