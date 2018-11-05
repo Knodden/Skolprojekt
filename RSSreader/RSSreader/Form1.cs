@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ServiceModel.Syndication;
 using RSSreader.BusinessLayer;
+using System.Text.RegularExpressions;
 
 namespace RSSreader {
 	public partial class Form1 : Form {
@@ -245,7 +246,8 @@ namespace RSSreader {
 					string selectedEpisode = lvEpisodes.SelectedItems[0].Text;
 					string episode = ListHandler.FetchEpisode(selectedEpisode, podcast);
 					lbEpisodeTitle.Text = selectedEpisode;
-					tbEpsiodeDescription.Text = episode;
+					string episodeNoHTML = Regex.Replace(episode, "<.*?>", String.Empty);
+					tbEpsiodeDescription.Text = episodeNoHTML;
 
 					return;
 				}
