@@ -168,12 +168,12 @@ namespace RSSreader.BusinessLayer
             }
             return podcastAdded;
         }
-        //internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle)
-        //{
-        //    bool isPodcastUpdated = false;
+        internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle)
+        {
+            bool isPodcastUpdated = false;
 
-        //    return isPodcastUpdated;
-        //}
+            return isPodcastUpdated;
+        }
         public static List<Podcast> SortPodcastList()
         {
             var newList = listOfPodcast.OrderBy((a) => a.Title).ToList();
