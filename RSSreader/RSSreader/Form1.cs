@@ -181,14 +181,14 @@ namespace RSSreader {
 		private void tbCategory_TextChanged(object sender, EventArgs e) {
 			ShowPodcastByCategory(tbCategory.Text.ToString());
 			if (!(string.IsNullOrEmpty(tbCategory.Text))) { 
-				lbPodcastRubrik.Text = "Podcasts (Category: " + tbCategory.Text.ToString() + ")";
+				lbFilter.Text = "Filter by Category (" + tbCategory.Text.ToString() + ")";
 				btnNewCategory.Enabled = true;
 				if(!(lbCategory.SelectedItem == null)) {
 					CategoryButtons(true);
 				}
 			}
 			else {
-				lbPodcastRubrik.Text = "Podcasts";
+				lbFilter.Text = "Filter by Category (*)";
 				CategoryButtons(false);
 				btnNewCategory.Enabled = false;
 			}
