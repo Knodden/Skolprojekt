@@ -230,5 +230,26 @@ namespace RSSreader {
             await new FetchFeed().FetchFeeds(toUpdate);
             ListHandler.SaveData();
         }
-    }
+
+		private void lvEpisodes_SelectedIndexChanged(object sender, EventArgs e) {
+			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0) {
+				return;
+			}
+			else {
+				if (lvEpisodes.SelectedItems == null || lvEpisodes.SelectedItems.Count == 0) {
+					return;
+				}
+				else {
+					string selectedPodcast = lvPodcasts.SelectedItems[0].Text;
+					var podcast = ListHandler.FetchPodcast(selectedPodcast);
+					string selectedEpisode = lvEpisodes.SelectedItems[0].Text;
+					string episode = ListHandler.FetchEpisode(selectedEpisode, podcast);
+					lbEpisodeTitle.Text = selectedEpisode;
+					tbEpsiodeDescription.Text = episode;
+
+					return;
+				}
+			}
+		}
+	}
 }

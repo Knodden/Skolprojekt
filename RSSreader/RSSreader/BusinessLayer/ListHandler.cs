@@ -218,5 +218,13 @@ namespace RSSreader.BusinessLayer
             }
 			return null;
         }
-    }
+		internal static string FetchEpisode(string selectedEpisode, Podcast selectedPodcast) {
+			foreach(var e in selectedPodcast.Episodes) {
+				if(e.Title == selectedEpisode) {
+					return e.Description;
+				}
+			}
+			return null;
+		}
+	}
 }
