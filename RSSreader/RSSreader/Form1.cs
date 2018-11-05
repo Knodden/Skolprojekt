@@ -49,6 +49,7 @@ namespace RSSreader {
 			 */
 			if (ListHandler.AddPodcast(podcastURL, podcastTitle, podcastInterval, podcastCategory.ToString())) {
 				FillPodcastListBox();
+				Dialog.PodcastAdded();
 				tbPodcastTitle.Text = "";
 				tbPodcastURL.Text = "";
 				cbPodcastInterval.SelectedIndex = 0;
@@ -70,6 +71,7 @@ namespace RSSreader {
 				tbPodcastURL.Text = "";
 				cbPodcastInterval.SelectedIndex = 0;
 				cbPodcastCategory.SelectedIndex = 0;
+				PodcastButtons(false);
 				FillPodcastListBox();
 			}	
         }

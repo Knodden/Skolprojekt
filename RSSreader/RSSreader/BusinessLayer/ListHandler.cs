@@ -153,7 +153,6 @@ namespace RSSreader.BusinessLayer
                         int nPodcastIntervalInt = int.Parse(nPodcastInterval);
                         Podcast createPodcast = new Podcast(nPodcastURL, nPodcastTitle, nPodcastIntervalInt, nPodcastCategory);
                         listOfPodcast.Add(createPodcast);
-                        Dialog.PodcastAdded();
                         podcastAdded = true;
                         new FileHandler().SavePodcasts(listOfPodcast);
                     }
