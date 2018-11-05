@@ -18,8 +18,6 @@ namespace RSSreader {
 			InitializeComponent();
 		}
 		private async void Form1_Load(object sender, EventArgs e) {
-            // Det som sker när programmet startar.
-            // Ladda in XML från Podcast och Kategori och fyll listorna.
             ListHandler.LoadData();
 			FillPodcastListBox();
 			FillCatogoryListBox();
@@ -45,9 +43,6 @@ namespace RSSreader {
 			string podcastTitle = tbPodcastTitle.Text;
 			var podcastInterval = cbPodcastInterval.SelectedItem.ToString();
 			var podcastCategory = cbPodcastCategory.SelectedItem.ToString();
-			/* Skall man skapa en podcast, skicka den vidare i stället, och kontrllera där efter.
-			 * I stället för att skicka med en massa värden?
-			 */
 			if (ListHandler.AddPodcast(podcastURL, podcastTitle, podcastInterval, podcastCategory.ToString())) {
 				FillPodcastListBox();
 				Dialog.PodcastAdded();
@@ -76,69 +71,89 @@ namespace RSSreader {
 				FillPodcastListBox();
 			}	
         }
-		private void btnRemovePodcast_Click(object sender, EventArgs e) {
-			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems[0].Text)) {
+		private void btnRemovePodcast_Click(object sender, EventArgs e)
+        {
+			if (ListHandler.RemovePodcast(lvPodcasts.SelectedItems[0].Text))
+            {
 				FillPodcastListBox();
 				tbPodcastTitle.Text = "";
 				tbPodcastURL.Text = "";
 				PodcastButtons(false);
 			}
 		}
-		private void btnNewCategory_Click(object sender, EventArgs e) {
+		private void btnNewCategory_Click(object sender, EventArgs e)
+        {
 			ListHandler.AddCategory(tbCategory.Text.ToString());
 			FillCatogoryListBox();
 			tbCategory.Text = "";
 		}
-		private void btnRemoveCategory_Click(object sender, EventArgs e) {
-			if (ListHandler.RemoveCategory(tbCategory.Text.ToString())) { 
+		private void btnRemoveCategory_Click(object sender, EventArgs e)
+        {
+			if (ListHandler.RemoveCategory(tbCategory.Text.ToString()))
+            { 
 				FillCatogoryListBox();
 				tbCategory.Text = "";
 			}
 		}
-		private void btnSaveCategory_Click(object sender, EventArgs e) {
-			if(ListHandler.UpdateCategory(lbCategory.SelectedItem.ToString(), tbCategory.Text.ToString())) {
+		private void btnSaveCategory_Click(object sender, EventArgs e)
+        {
+			if(ListHandler.UpdateCategory(lbCategory.SelectedItem.ToString(), tbCategory.Text.ToString()))
+            {
 				FillCatogoryListBox();
 			}
 		}
-		public void FillCatogoryListBox() {
+		public void FillCatogoryListBox()
+        {
 			lbCategory.Items.Clear();
 			var sortedList = ListHandler.SortCategoryList(ListHandler.ListCategory());
-			foreach (var sc in sortedList) {
+			foreach (var sc in sortedList)
+            {
 				lbCategory.Items.Add(sc.Title);
 			};
 			FillCategoryCheckbox();
 		}
-		public void FillIntervalCheckbox() {
+		public void FillIntervalCheckbox()
+        {
 			cbPodcastInterval.Items.Clear();
 			var intervalList = Interval.PossibleIntervals();
-			if (intervalList.Any()) {
-				foreach (var c in intervalList) {
+			if (intervalList.Any())
+            {
+				foreach (var c in intervalList)
+                {
 					cbPodcastInterval.Items.Add(c);
 				}
 			}
 			cbPodcastInterval.SelectedIndex = 0;
 		}
-		public void FillCategoryCheckbox() {
+		public void FillCategoryCheckbox()
+        {
 			cbPodcastCategory.Items.Clear();
 			var categoryList = ListHandler.ListCategory();
-			if (categoryList.Any()) {
-				foreach (var c in categoryList) {
+			if (categoryList.Any())
+            {
+				foreach (var c in categoryList)
+                {
 					cbPodcastCategory.Items.Add(c.Title);
 				}
 			}
-			if (categoryList.Any()) { 
+			if (categoryList.Any())
+            { 
 				cbPodcastCategory.SelectedIndex = 0;
 				cbPodcastCategory.Enabled = true;
 			}
-			else {
+			else
+            {
 				cbPodcastCategory.Enabled = false;
 			}
 		}
-		public void FillPodcastListBox() {
+		public void FillPodcastListBox()
+        {
 			lvPodcasts.Items.Clear();
 			var podcastList = ListHandler.SortPodcastList();
-			if (podcastList.Any()) {
-				foreach (var p in podcastList) {
+			if (podcastList.Any())
+            {
+				foreach (var p in podcastList)
+                {
 					ListViewItem podcast = new ListViewItem();
 					podcast.Text = p.Title;
 					podcast.SubItems.Add(p.Episodes.Count.ToString());
@@ -148,8 +163,10 @@ namespace RSSreader {
 				}
 			}
 		}
-		private void lvPodcasts_SelectedIndexChanged(object sender, EventArgs e) {
-			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0) {
+		private void lvPodcasts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0)
+            {
 				return;
 			}
 			else
@@ -160,15 +177,11 @@ namespace RSSreader {
                 tbPodcastURL.Text = podcast.URL;
                 cbPodcastInterval.Text = podcast.UpdateInterval.ToString();
                 cbPodcastCategory.Text = podcast.Category.ToString();
-
                 FillVEpisodes(podcast);
-
                 PodcastButtons(true);
                 return;
             }
         }
-
-        
         public void ShowPodcastByCategory(string updateCategoryTitle)
         {
             lvPodcasts.Items.Clear();
@@ -186,16 +199,20 @@ namespace RSSreader {
                 }
             }
         }
-		private void tbCategory_TextChanged(object sender, EventArgs e) {
+		private void tbCategory_TextChanged(object sender, EventArgs e)
+        {
 			ShowPodcastByCategory(tbCategory.Text.ToString());
-			if (!(string.IsNullOrEmpty(tbCategory.Text))) { 
+			if (!(string.IsNullOrEmpty(tbCategory.Text)))
+            { 
 				lbFilter.Text = "Filter by Category (" + tbCategory.Text.ToString() + ")";
 				btnNewCategory.Enabled = true;
-				if(!(lbCategory.SelectedItem == null)) {
+				if(!(lbCategory.SelectedItem == null))
+                {
 					CategoryButtons(true);
 				}
 			}
-			else {
+			else
+            {
 				lbFilter.Text = "Filter by Category (*)";
 				CategoryButtons(false);
 				btnNewCategory.Enabled = false;
@@ -209,7 +226,6 @@ namespace RSSreader {
 			btnRemovePodcast.Enabled = showButton;
 			btnSavePodcast.Enabled = showButton;
 		}
-        
         private void FillVEpisodes(Podcast podcast)
         {
             lvEpisodes.Items.Clear();
@@ -222,7 +238,6 @@ namespace RSSreader {
                 lvEpisodes.Items.Add(episode);
             }
         }
-
         private async void timer1_Tick(object sender, EventArgs e)
         {
             var all = ListHandler.ListPodcast();
@@ -231,16 +246,19 @@ namespace RSSreader {
             await new FetchFeed().FetchFeeds(toUpdate);
             ListHandler.SaveData();
         }
-
-		private void lvEpisodes_SelectedIndexChanged(object sender, EventArgs e) {
-			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0) {
+		private void lvEpisodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			if (lvPodcasts.SelectedItems == null || lvPodcasts.SelectedItems.Count == 0)
+            {
 				return;
 			}
 			else {
-				if (lvEpisodes.SelectedItems == null || lvEpisodes.SelectedItems.Count == 0) {
+				if (lvEpisodes.SelectedItems == null || lvEpisodes.SelectedItems.Count == 0)
+                {
 					return;
 				}
-				else {
+				else
+                {
 					string selectedPodcast = lvPodcasts.SelectedItems[0].Text;
 					var podcast = ListHandler.FetchPodcast(selectedPodcast);
 					string selectedEpisode = lvEpisodes.SelectedItems[0].Text;

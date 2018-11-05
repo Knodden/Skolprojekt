@@ -168,12 +168,12 @@ namespace RSSreader.BusinessLayer
             }
             return podcastAdded;
         }
-        internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle)
-        {
-            bool isPodcastUpdated = false;
+        //internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle)
+        //{
+        //    bool isPodcastUpdated = false;
 
-            return isPodcastUpdated;
-        }
+        //    return isPodcastUpdated;
+        //}
         public static List<Podcast> SortPodcastList()
         {
             var newList = listOfPodcast.OrderBy((a) => a.Title).ToList();
@@ -184,11 +184,6 @@ namespace RSSreader.BusinessLayer
             var newList = listOfPodcast.Where(p => p.Category.Contains(updateCategoryTitle)).OrderBy(p => p.Title).ToList();
             return newList;
         }
-        //public static List<Episode> ShowEpisodes()
-        //{
-        //    var newList = 
-        //    return newList;
-        //}
         internal static bool RemovePodcast(string podcastRemove)
         {
             bool postcastRemoved = false;

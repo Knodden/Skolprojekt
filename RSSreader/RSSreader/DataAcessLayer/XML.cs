@@ -49,12 +49,10 @@ namespace RSSreader.DataAcessLayer
             }
         }
     }
-
     public class rss
     {
         public channel channel { get; set; }
     }
-
     public class channel
     {
         [XmlElement("item")]

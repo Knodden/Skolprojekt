@@ -20,16 +20,10 @@ namespace RSSreader.BusinessLayer
 			UpdateInterval = podcastInterval;
 			Category = podcastCategory;
 		}
-
         public Podcast()
         {
             Episodes = new List<Episode>();
         }
-        //public List<Episode> ListEpisodes()
-        //{
-        //    return Episodes;
-        //}
-
     }
 }
 
