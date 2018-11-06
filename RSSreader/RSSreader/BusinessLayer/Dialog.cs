@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RSSreader.BusinessLayer {
-	class Dialog
+	class Dialog : DialogBase
     {
-		internal static void EmptyInput()
+        internal override void EmptyInput()
         {
-			MessageBox.Show("Can't leave input empty. Please try again.");
-		}
-		internal static void CatogeryExist()
+            MessageBox.Show("Can't leave input empty. Please try again.");
+        }
+        internal static void CatogeryExist()
         {
 			MessageBox.Show("This category does alerady exist. Please try again.");
 		}

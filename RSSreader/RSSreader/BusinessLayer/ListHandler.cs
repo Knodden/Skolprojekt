@@ -41,7 +41,7 @@ namespace RSSreader.BusinessLayer
             }
             else
             {
-                Dialog.EmptyInput();
+                new Dialog().EmptyInput();
             }
         }
         internal static bool UpdateCategory(string oldCategory, string newCategory)
@@ -71,7 +71,7 @@ namespace RSSreader.BusinessLayer
             }
             else
             {
-                Dialog.EmptyInput();
+                new Dialog().EmptyInput();
             }
             return isCategoryUpdated;
         }
@@ -164,7 +164,7 @@ namespace RSSreader.BusinessLayer
             }
             else
             {
-                Dialog.EmptyInput();
+                new Dialog().EmptyInput();
             }
             return podcastAdded;
         }

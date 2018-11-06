@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-public class DialogBase
+namespace RSSreader.BusinessLayer
 {
-    internal virtual void EmptyInput()
+    class DialogBase
     {
-        MessageBox.Show("Can't leave input empty.");
+        internal virtual void EmptyInput()
+        {
+            MessageBox.Show("Can't leave input empty.");
+        }
     }
 }
-
-
-//af
