@@ -17,10 +17,8 @@ namespace RSSreader.BusinessLayer
             {
                 var url = p.URL;
                 var content = await Client.GetStringAsync(url);
-                //Anropa en metod
                 var episodeList = new XML().XmlToEpisode(content);
                 p.Episodes = episodeList;
-                //Anropa en annan metod
             }
 
         }
