@@ -8,10 +8,9 @@ namespace RSSreader.BusinessLayer
 {
     class Validater	
     {
-        // Denna ger true om url inte är en string. 
 		internal static bool IsURL(string URL) {
 			{
-				if(!(URL == "")){ //if (URL.Contains(@"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$")) {
+				if(!(URL == "")){ 
 					return true;
 				}
 				else {
@@ -19,13 +18,6 @@ namespace RSSreader.BusinessLayer
 				}
 			}
 		}
-
-        //internal static bool IsURL(string URL) {
-		//	{
-		//		 Uri Result;
-        //         return Uri.TryCreate(URL, UriKind.Absolute, out Result) && Result.Scheme == Uri.UriSchemeHttp;
-		//	}
-		//}
 
         internal static bool NotEmpty(string input){
             if(!(string.IsNullOrEmpty(input))){
