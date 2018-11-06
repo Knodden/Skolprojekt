@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.ServiceModel.Syndication;
+using System.Xml;
 
 namespace RSSreader.BusinessLayer
 {
     class Validater	
     {
 		internal static bool IsURL(string URL) {
-			{
-				if(!(URL == "")){ 
-					return true;
+			try {
+				SyndicationFeed feed = SyndicationFeed.Load(XmlReader.Create(URL));
+				foreach (SyndicationItem item in feed.Items) {
+					Debug.Print(item.Title.Text);
 				}
-				else {
-					return false;
-				}
+				return true;
+			}
+			catch (Exception) {
+				return false;
 			}
 		}
-
         internal static bool NotEmpty(string input){
             if(!(string.IsNullOrEmpty(input))){
                 return true;
@@ -26,6 +30,14 @@ namespace RSSreader.BusinessLayer
             else {
                 return false;
             }
+		}
+		internal static bool NotEmpty(Podcast newPodcast) {
+			if((string.IsNullOrEmpty(newPodcast.Title)) || (string.IsNullOrEmpty(newPodcast.URL))){
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 		internal static bool CheckCategoryExist(List<Category> categories, string newCategory) {
 			bool doesExist = false;
@@ -92,5 +104,6 @@ namespace RSSreader.BusinessLayer
 			}
 			return isPodcastChanged;
 		}
+
 	}
 }

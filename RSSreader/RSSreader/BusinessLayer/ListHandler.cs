@@ -92,10 +92,22 @@ namespace RSSreader.BusinessLayer
                 }
                 if (updatePodcast)
                 {
-                    ListHandler.RemovePodcast(oldPodcast.Title);
-                    ListHandler.AddPodcast(newPodcast.URL, newPodcast.Title, newPodcast.UpdateInterval.ToString(), newPodcast.Category);
-					isPodcastUpdate = true;
-					Dialog.PodcastUpdated();
+					if (Validater.NotEmpty(newPodcast)) {
+						if ((Validater.IsURL(newPodcast.URL))) {
+							ListHandler.RemovePodcast(oldPodcast.Title);
+							listOfPodcast.Add(newPodcast);
+							new FileHandler().SavePodcasts(listOfPodcast);
+							isPodcastUpdate = true;
+							Dialog.PodcastUpdated();
+						}
+						else {
+							Dialog.NotURL();
+						}
+					}
+					else {
+						new Dialog().EmptyInput();
+					}
+			
                 }
             }
             return isPodcastUpdate;
@@ -167,12 +179,6 @@ namespace RSSreader.BusinessLayer
                 new Dialog().EmptyInput();
             }
             return podcastAdded;
-        }
-        internal static bool UpdatePodcast(string oldPodcastTitle, string newPodCastTitle)
-        {
-            bool isPodcastUpdated = false;
-
-            return isPodcastUpdated;
         }
         public static List<Podcast> SortPodcastList()
         {
